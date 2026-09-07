@@ -25,29 +25,29 @@ const seasons = [
     name: 'Spring',
     zh: '春',
     id: 103,
-    line: 'The first notes of a new year.',
-    poem: '梅枝初醒，鸟声渐近。',
+    line: 'A bird among opening blossoms.',
+    poem: '花初绽，鸟声近。',
   },
   {
     name: 'Summer',
     zh: '夏',
     id: 48,
-    line: 'Life gathers at the water’s edge.',
-    poem: '水际花开，万物丰盈。',
+    line: 'A wing above the quiet water.',
+    poem: '水无声，翠羽轻。',
   },
   {
     name: 'Autumn',
     zh: '秋',
     id: 36,
-    line: 'A wingbeat across the evening moon.',
-    poem: '雁过月圆，秋意无声。',
+    line: 'Wild geese across the evening moon.',
+    poem: '雁影过，晚月明。',
   },
   {
     name: 'Winter',
     zh: '冬',
     id: 79,
-    line: 'The world holds its breath.',
-    poem: '雪落松间，静候来春。',
+    line: 'Soft snow along a pine branch.',
+    poem: '雪轻落，松枝静。',
   },
 ];
 function Artwork({
@@ -233,7 +233,7 @@ export default function Exhibition() {
               与季节同行
             </p>
           </div>
-          <p className="section-intro">
+          <p className="section-intro season-margin-note">
             The seasons turn, but beauty endures.
             <br />
             <span lang="zh">四季流转，花鸟常在。</span>

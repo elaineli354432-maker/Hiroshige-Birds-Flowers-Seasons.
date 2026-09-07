@@ -98,7 +98,7 @@ figcaption {
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
   padding: 50px 11% 95px;
-  gap: 9%;
+  gap: 6%;
 }
 .eyebrow {
   color: var(--soft);
@@ -145,7 +145,7 @@ figcaption {
 }
 .hero-art {
   text-align: center;
-  justify-self: center;
+  justify-self: start;
   width: 100%;
   max-width: 340px;
 }
@@ -926,3 +926,39 @@ dd {
   }
 }
 fieldset{border:0;margin:0;min-width:0}.masthead a{min-height:44px;display:inline-flex;align-items:center}
+
+/* Phase 1 editorial refinement: quiet offsets, one shared seasonal language. */
+@media (min-width: 701px) {
+  .hero-copy { margin-bottom: 32px; }
+  .hero-art { margin-left: 8px; }
+  .season-margin-note { width: calc((100% - 120px) / 4); padding-bottom: 4px; }
+}
+.season-margin-note { font-size: 12px; line-height: 1.9; color: #716d63; }
+.season-margin-note span { font-size: 12px; }
+.season-grid { align-items: start; padding-bottom: 16px; }
+.season-entry { transition: opacity 350ms ease; }
+.season-entry:nth-child(2) { margin-top: 32px; }
+.season-entry:nth-child(3) { margin-top: 12px; }
+.season-entry:nth-child(4) { margin-top: 44px; }
+.season-entry:nth-child(2) .season-art { margin-bottom: 28px; }
+.season-entry:nth-child(4) .season-art { margin-bottom: 32px; }
+.season-entry:nth-child(1) img { object-position: 44% center; }
+.season-entry:nth-child(4) img { object-position: 56% center; }
+.season-entry::after { content: ''; position: absolute; bottom: -1px; left: 0; height: 1px; width: 24%; background: var(--ink); opacity: .35; transition: width 400ms ease, opacity 400ms ease; }
+.season-entry:hover::after, .season-entry:focus-visible::after { width: 88%; opacity: .8; }
+.season-grid:has(.season-entry:focus-visible) > .season-entry:not(:focus-visible) { opacity: .76; }
+.season-grid:has(.season-entry:focus-visible) > .season-entry:focus-visible { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .season-grid:not(:has(.season-entry:focus-visible)):has(.season-entry:hover) > .season-entry:not(:hover) { opacity: .76; }
+  .season-entry:hover { opacity: 1; }
+}
+@media (max-width: 700px) {
+  .hero-art { justify-self: center; }
+  .season-margin-note { margin-top: 22px; max-width: 240px; }
+  .season-entry:nth-child(2), .season-entry:nth-child(4) { margin-top: 20px; }
+  .season-entry:nth-child(3) { margin-top: 0; }
+  .season-entry:nth-child(4) .season-art { margin-bottom: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .season-entry, .season-entry::after { transition: none; }
+}

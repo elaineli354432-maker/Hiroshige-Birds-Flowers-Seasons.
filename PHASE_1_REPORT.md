@@ -53,3 +53,30 @@
 - Windows 下 Vinext 在静态预渲染完成后立即 process.exit 会触发 libuv 关闭断言；加入成功退出自然清理的预加载脚本，错误退出仍保留，最终构建正常退出。
 
 数据与赏析沿用用户提供资料，未重新进行艺术史校勘。
+## Phase 1 visual re-audit — 2026-09-08
+
+Reviewed again against MASTER_BRIEF.md, DESIGN_BLUEPRINT.png and ACCEPTANCE_CRITERIA.md. Structure, artwork selection, warm paper palette, typography family and gallery interactions retained. No Phase 2 work started.
+
+### Changes
+- Hero horizontal gap reduced from 9% to 6%; artwork aligned toward the copy, with a 32px optical adjustment to the text block. Homepage retains the first Spring work, Bird and Double Cherry (ID 2).
+- Desktop seasons retain four columns with 0/32/12/44px vertical offsets, small caption-spacing differences and gentle artwork alignment changes. Mobile retains two columns with smaller 0/20px offsets.
+- Active hover/focus stays at opacity 1; other seasons fade to .76. A 1px rule extends from 24% to 88% over 400ms. No scale, bounce or rotation. Keyboard focus takes precedence over hover; pointer-only dimming is restricted to hover-capable fine pointers. Reduced-motion rules remain in force.
+- Seasonal margin note is 12px, muted, and aligned over the Winter column on desktop.
+- Four bilingual descriptions now share short observational phrasing.
+
+### Verification
+- Final static build: exit 0. Application lint: pass.
+- Desktop 1440px: four columns, intended offsets and tightened hero relationship visually inspected.
+- 375/390/430px: no horizontal overflow; every image uses contain; filter buttons remain at least 44px high. Mobile season layout visually inspected at 390px.
+- Keyboard focus: active season 1.0, others .76; rule widths verified; no transforms.
+- Summer navigation: 23 works; mobile details open, scroll, and close with Escape. Browser console: no errors captured.
+- All 114 records and original JPEGs retained. No image-generation, crop, filters or decorative imagery added.
+- Existing Phase 1 gallery/detail/data requirements remain satisfied. Phase 2 scroll storytelling and Phase 3 working downloads remain deferred.
+
+### Visual score: 94 / 100 (subjective)
+Art-first 19/20; museum/editorial 19/20; seasonal rhythm 13/15; gallery integrity 15/15; motion restraint 10/10; typography/spacing 9/10; mobile 9/10.
+
+### Cat clarification outstanding
+No cat asset, component, persistent pet UI, or cat overlay was found in the website source or rendered page. A clarification was requested about whether this refers to a Codex desktop pet. No cat was invented or added to the page, and no desktop setting was changed. Converting the referenced cat to an Easter egg remains unresolved until its source is identified; this is separate from the visual score above.
+
+The earlier recorded scaffold lint and development-dependency audit limitations still apply. No remote publication was attempted in this refinement pass.
