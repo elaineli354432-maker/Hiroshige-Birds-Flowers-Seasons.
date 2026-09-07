@@ -76,6 +76,7 @@ function Artwork({
   );
 }
 function Hero() {
+  const heroWork = works.find((work) => work.season.includes('Spring'))!;
   return (
     <>
       <header className="masthead">
@@ -110,9 +111,9 @@ function Hero() {
           </a>
         </div>
         <figure className="hero-art">
-          <Artwork work={works[101]} priority />
+          <Artwork work={heroWork} priority />
           <figcaption>
-            A MOMENT IN SPRING <span lang="zh">梅枝上的莺</span>
+            A MOMENT IN SPRING <span lang="zh">{heroWork.title_zh}</span>
           </figcaption>
         </figure>
         <div className="hero-bottom">
