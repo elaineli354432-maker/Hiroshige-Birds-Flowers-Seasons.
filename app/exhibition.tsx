@@ -18,36 +18,36 @@ import catalog from './catalog.json';
 import imageSizes from './image-sizes.json';
 type Work = (typeof catalog.works)[number];
 const works = catalog.works;
-const themes = ['All', 'Birds', 'Flowers', 'Moon', 'Rain', 'Snow', 'Animals'];
-const themeZh = ['全部', '鸟', '花', '月', '雨', '雪', '动物'];
+const themes = ['All', 'Flowers', 'Birds', 'Moon', 'Rain', 'Snow', 'Animals'];
+const themeZh = ['全部', '花', '鸟', '月', '雨', '雪', '动物'];
 const seasons = [
   {
     name: 'Spring',
     zh: '春',
     id: 103,
-    line: 'A bird among opening blossoms.',
-    poem: '花初绽，鸟声近。',
+    line: 'The first notes of a new year.',
+    poem: '梅枝初醒，鸟声渐近。',
   },
   {
     name: 'Summer',
     zh: '夏',
     id: 48,
-    line: 'A wing above the quiet water.',
-    poem: '水无声，翠羽轻。',
+    line: 'Life gathers at the water’s edge.',
+    poem: '水际花开，万物丰盈。',
   },
   {
     name: 'Autumn',
     zh: '秋',
     id: 36,
-    line: 'Wild geese across the evening moon.',
-    poem: '雁影过，晚月明。',
+    line: 'A wingbeat across the evening moon.',
+    poem: '雁过月明，秋意无声。',
   },
   {
     name: 'Winter',
     zh: '冬',
     id: 79,
-    line: 'Soft snow along a pine branch.',
-    poem: '雪轻落，松枝静。',
+    line: 'The world holds its breath.',
+    poem: '雪落松间，静候来春。',
   },
 ];
 function Artwork({
@@ -107,7 +107,7 @@ function Hero() {
             <span lang="zh">一枝花，一只鸟，一个季节。</span>
           </p>
           <a className="enter" href="#seasons">
-            Enter the Exhibition <span lang="zh">进入展览 ↘</span>
+            Enter the Exhibition <span lang="zh">进入展览 <span className="entrance-arrow" aria-hidden="true">↘</span></span>
           </a>
         </div>
         <figure className="hero-art">
@@ -127,6 +127,7 @@ function Hero() {
 }
 export default function Exhibition() {
   const [season, setSeason] = useState('All');
+  const [catVisible, setCatVisible] = useState(false);
   const [theme, setTheme] = useState('All');
   const [selected, setSelected] = useState<number | null>(null);
   const [zoom, setZoom] = useState(false);
@@ -271,6 +272,13 @@ export default function Exhibition() {
           ))}
         </div>
       </section>
+      <section className="page-turn" aria-labelledby="fragments-title">
+        <span className="page-turn-rule" aria-hidden="true" />
+        <div><p className="eyebrow">INTERLUDE / 自然片段</p>
+          <h2 id="fragments-title">Nature, observed in fragments.</h2>
+          <p lang="zh">花、鸟、月、雨，被截取成一瞬。</p>
+        </div>
+      </section>
       <section
         id="gallery"
         className="gallery-section"
@@ -280,21 +288,21 @@ export default function Exhibition() {
           <div>
             <p className="eyebrow">02 / THE COLLECTION</p>
             <h2 id="gallery-title">
-              {season === 'All' ? 'All works' : season}
+              {season === 'All' ? 'All Works' : season}
               <span className="heading-count" aria-hidden="true">
                 {String(filtered.length).padStart(2, '0')}
               </span>
             </h2>
             <p className="section-zh" lang="zh">
               {season === 'All'
-                ? '花鸟万象，一幅一观'
+                ? '所有作品'
                 : seasons.find((s) => s.name === season)?.zh + '之画册'}
             </p>
           </div>
           <p className="section-intro">
-            An intimate world, held in a narrow frame.
+            Chū-tanzaku: a narrow, vertical print format.
             <br />
-            <span lang="zh">方寸之间，自有天地。</span>
+            <span lang="zh">中短册判：以细长竖幅，容纳自然的一瞬。</span>
           </p>
         </div>
         <div className="filters">
@@ -302,7 +310,7 @@ export default function Exhibition() {
             className="season-filter"
             aria-label="Filter by season"
           >
-            <span className="filter-label">SEASON / 四时</span>
+            <span className="filter-label">Seasons / 四时</span>
             {['All', ...seasons.map((s) => s.name)].map((s) => (
               <button
                 key={s}
@@ -381,6 +389,7 @@ export default function Exhibition() {
       </section>
       <footer>
         <div className="footer-poem">
+          <p className="eyebrow closing-label">CODA / 四时之外</p>
           <p>
             More than a gallery —<br />
             <i>a journey through Hiroshige’s year.</i>
@@ -397,7 +406,12 @@ export default function Exhibition() {
           <button disabled>Share / 分享 ↗</button>
         </div>
         <div className="footer-bottom">
-          <span>HIROSHIGE · BIRDS, FLOWERS, SEASONS</span>
+          <div className="colophon-visitor">
+            <button className="visitor-trigger" aria-label={catVisible ? 'Hide the quiet visitor / 隐藏小访客' : 'Reveal a quiet visitor / 一位小访客'} aria-expanded={catVisible} onClick={() => setCatVisible(!catVisible)}>HIROSHIGE · BIRDS, FLOWERS, SEASONS</button>
+            {catVisible && <span className="cat-easter-egg"><span className="sr-only">A resting cat / 小憩的猫</span>
+              <svg viewBox="0 0 70 40" width="56" height="32" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 29C11 30 9 20 16 16L15 7L23 12L31 7L32 17C39 17 49 19 51 28C59 30 64 25 59 22C55 20 54 24 57 25M19 29C27 34 42 34 51 28M18 20L21 21M26 21L29 20M22 25L25 25"/></svg>
+            </span>}
+          </div>
           <p>
             Catalogue:{' '}
             <a href={catalog.source} target="_blank" rel="noreferrer">
@@ -527,3 +541,4 @@ export default function Exhibition() {
     </main>
   );
 }
+
