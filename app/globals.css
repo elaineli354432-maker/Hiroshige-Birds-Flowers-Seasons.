@@ -1273,3 +1273,22 @@ footer { display: block; padding-top: 0; }
   .wallpaper-links { margin-top:18px; }
   .collection-colophon { margin-inline:6%; gap:24px; }
 }
+
+/* Pre-launch polish: readable download labels and quiet share feedback. */
+.collection-actions a { font-size:11px; }
+.collection-share-status { flex-basis:100%; font-size:12px; color:var(--soft); }
+.collection-share-status:empty { display:none; }
+.wallpaper-item > div { min-width:0; }
+.wallpaper-links a { font-size:12px; letter-spacing:.2px; line-height:1.7; }
+.collection-header > a:last-child { font-size:12px; letter-spacing:.3px; }
+.collection-colophon a { display:inline-flex; align-items:center; min-height:44px; }
+@media (max-width:900px) and (min-width:701px) {
+ .wallpaper-section { grid-template-columns:1fr; gap:45px; }
+ .wallpaper-heading { position:static; }
+}
+@media (max-width:700px) {
+ .collection-header > a:last-child { font-size:12px; max-width:170px; }
+ .wallpaper-links a { font-size:12px; }
+ .download-link { flex-wrap:wrap; }
+ .collection-colophon { flex-wrap:wrap; }
+}

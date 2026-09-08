@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import catalog from '../catalog.json';
+import imageSizes from '../image-sizes.json';
 
 export const metadata: Metadata = {
   title: 'Collection Downloads / 展览珍藏',
@@ -32,7 +33,7 @@ export default function CollectionPage() {
       <div>
         <p className="eyebrow">01 / DIGITAL CATALOGUE</p>
         <h2 id="catalogue-title">114 works, bilingual.</h2>
-        <p lang="zh">完整收录作品题名、年代、出版者、季节、主题与双语赏析。</p>
+        <p lang="zh">114 幅作品的双语目录数据（JSON），含题名、年代与赏析；非 PDF 图册。</p>
       </div>
       <a className="download-link" href="/downloads/hiroshige-exhibition-catalog.json" download>
         Download catalogue data <span>JSON · 下载 ↘</span>
@@ -48,13 +49,13 @@ export default function CollectionPage() {
         {wallpapers.map(({ work, slug, season }) => <article key={work.id} className="wallpaper-item">
           {/* Original source dimensions vary; the contained preview never crops the supplied JPEG. */}
           {/* oxlint-disable-next-line next/no-img-element */}
-          <img src={'/artworks/' + work.web_image_filename} alt={work.image_alt_zh + ' / ' + work.image_alt_en} loading="lazy" />
+          <img src={'/artworks/' + work.web_image_filename} alt={work.image_alt_zh + ' / ' + work.image_alt_en} loading="lazy" decoding="async" width={imageSizes[work.web_image_filename as keyof typeof imageSizes].width} height={imageSizes[work.web_image_filename as keyof typeof imageSizes].height} />
           <div>
             <p className="eyebrow">{season}</p>
             <h3><span lang="zh">{work.title_zh}</span>{work.title_en}</h3>
             <div className="wallpaper-links">
-              <a href={`/wallpapers/hiroshige-${slug}-desktop.jpg`} download>Desktop · 2560 × 1440 ↘</a>
-              <a href={`/wallpapers/hiroshige-${slug}-mobile.jpg`} download>Mobile · 1440 × 2560 ↘</a>
+              <a href={`/wallpapers/hiroshige-${slug}-desktop.jpg`} download>Desktop / 桌面 · 2560 × 1440 ↘</a>
+              <a href={`/wallpapers/hiroshige-${slug}-mobile.jpg`} download>Mobile / 手机 · 1440 × 2560 ↘</a>
             </div>
           </div>
         </article>)}

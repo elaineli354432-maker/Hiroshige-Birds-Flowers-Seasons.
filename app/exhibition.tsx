@@ -306,6 +306,7 @@ export default function Exhibition() {
   const [soundMode, setSoundMode] = useState<SoundMode>('off');
   const [filterPending, setFilterPending] = useState(false);
   const [shareStatus, setShareStatus] = useState('');
+  const [exhibitionShareStatus, setExhibitionShareStatus] = useState('');
   const ambientEngine = useRef<AmbientEngine | null>(null);
   const soundSuspendTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const filterTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -420,6 +421,7 @@ export default function Exhibition() {
       const match = location.hash.match(/^#artwork-(\d{1,3})$/);
       const id = match ? Number(match[1]) : 0;
       if (works.some(work => work.id === id)) openDetail(id, works.map(work => work.id));
+      else setDetailOpen(false);
     };
     const initialTimer = setTimeout(openFromHash, 0);
     window.addEventListener('hashchange', openFromHash);
@@ -739,14 +741,19 @@ export default function Exhibition() {
           <p className="eyebrow">THE COLLECTION, TO KEEP · 珍藏展览</p>
           {/* Static export uses native links to avoid client prefetch overhead. */}
           {/* oxlint-disable-next-line next/no-html-link-for-pages */}
-          <a href="/collection.html">Download Album / 下载图册 ↗</a>
+          <a href="/collection.html">Catalogue / 目录下载 ↗</a>
           {/* oxlint-disable-next-line next/no-html-link-for-pages */}
           <a href="/collection.html#wallpapers">Wallpaper / 壁纸 ↗</a>
           <button type="button" onClick={async () => {
             const data = { title: 'Hiroshige — Birds, Flowers, Seasons', text: 'Explore 114 prints through Hiroshige’s year.', url: location.href.split('#')[0] };
-            if (navigator.share) await navigator.share(data).catch(() => {});
-            else await navigator.clipboard.writeText(data.url).catch(() => {});
+            try {
+              if (navigator.share) { await navigator.share(data); setExhibitionShareStatus('Shared / 已分享'); }
+              else { await navigator.clipboard.writeText(data.url); setExhibitionShareStatus('Link copied / 链接已复制'); }
+            } catch (error) {
+              if ((error as DOMException).name !== 'AbortError') setExhibitionShareStatus('Please copy the address bar link / 请复制地址栏链接');
+            }
           }}>Share / 分享 ↗</button>
+          <span className="collection-share-status" aria-live="polite">{exhibitionShareStatus}</span>
         </div>
         <div className="footer-bottom">
           <div className="colophon-visitor">
@@ -781,7 +788,7 @@ export default function Exhibition() {
           <DialogContent
             className={'artwork-dialog' + (zoom ? ' study-mode' : '')}
             showCloseButton={false}
-            finalFocus={() => opener.current}
+            finalFocus={() => opener.current ?? document.querySelector<HTMLButtonElement>('.art-card')}
             onKeyDown={(event) => {
               if (!zoom && event.key === 'ArrowRight') {
                 event.preventDefault();
