@@ -77,6 +77,42 @@ figure {
   gap: 36px;
   font-size: 14px;
 }
+.sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0;
+  color: var(--soft);
+  font: 9px/1 Arial, sans-serif;
+  letter-spacing: 1.2px;
+  white-space: nowrap;
+}
+.sound-toggle b {
+  min-width: 42px;
+  font-size: 8px;
+  font-weight: 400;
+  text-align: left;
+  color: var(--ink);
+}
+.sound-mark {
+  width: 12px;
+  height: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sound-mark i {
+  width: 1px;
+  height: 3px;
+  background: currentColor;
+  transition: height 700ms ease;
+}
+.sound-toggle[aria-pressed='true'] .sound-mark i:nth-child(1) { height: 6px; }
+.sound-toggle[aria-pressed='true'] .sound-mark i:nth-child(2) { height: 10px; }
+.sound-toggle[aria-pressed='true'] .sound-mark i:nth-child(3) { height: 5px; }
+.sound-toggle:hover,
+.sound-toggle:focus-visible { color: var(--ink); }
 .masthead > span,
 .eyebrow,
 .hero-bottom,
@@ -198,6 +234,15 @@ figcaption {
     gap: 18px;
     font-size: 12px;
   }
+  .sound-toggle {
+    gap: 5px;
+    font-size: 0;
+  }
+  .sound-toggle b {
+    min-width: 0;
+    font-size: 8px;
+  }
+  .sound-mark { width: 10px; }
   .hero {
     height: auto;
     max-height: none;

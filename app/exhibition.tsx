@@ -17,6 +17,16 @@ import {
 import catalog from './catalog.json';
 import imageSizes from './image-sizes.json';
 type Work = (typeof catalog.works)[number];
+type SoundMode = 'off' | 'on' | 'paused';
+type AmbientEngine = {
+  context: AudioContext;
+  master: GainNode;
+  wind: GainNode;
+  water: GainNode;
+  fauna: GainNode;
+  tone: GainNode;
+  sources: AudioScheduledSourceNode[];
+};
 const works = catalog.works;
 const themes = ['All', 'Birds', 'Flowers', 'Moon', 'Rain', 'Snow', 'Animals'];
 const themeZh = ['全部', '鸟', '花', '月', '雨', '雪', '动物'];
@@ -50,6 +60,99 @@ const seasons = [
     poem: '雪落松间，静候来春。',
   },
 ];
+const soundProfiles: Record<string, [number, number, number, number]> = {
+  Spring: [0.54, 0.08, 0.16, 0.045],
+  Summer: [0.3, 0.4, 0.12, 0.035],
+  Autumn: [0.52, 0.04, 0.075, 0.055],
+  Winter: [0.12, 0.015, 0, 0.018],
+};
+
+function createAmbientEngine(): AmbientEngine {
+  const context = new AudioContext();
+  const master = context.createGain();
+  master.gain.value = 0;
+  master.connect(context.destination);
+
+  const makeNoise = (filterType: BiquadFilterType, frequency: number) => {
+    const seconds = 12;
+    const buffer = context.createBuffer(1, context.sampleRate * seconds, context.sampleRate);
+    const data = buffer.getChannelData(0);
+    let brown = 0;
+    for (let i = 0; i < data.length; i += 1) {
+      brown = (brown + 0.018 * (Math.random() * 2 - 1)) / 1.018;
+      data[i] = brown * 3.2;
+    }
+    data[data.length - 1] = data[0];
+    const source = context.createBufferSource();
+    source.buffer = buffer;
+    source.loop = true;
+    const filter = context.createBiquadFilter();
+    filter.type = filterType;
+    filter.frequency.value = frequency;
+    source.connect(filter);
+    source.start();
+    return { source, filter };
+  };
+
+  const wind = context.createGain();
+  const water = context.createGain();
+  const fauna = context.createGain();
+  const tone = context.createGain();
+  [wind, water, fauna, tone].forEach((gain) => {
+    gain.gain.value = 0;
+    gain.connect(master);
+  });
+
+  const windNoise = makeNoise('lowpass', 720);
+  windNoise.filter.connect(wind);
+  const waterNoise = makeNoise('bandpass', 1850);
+  waterNoise.filter.Q.value = 0.7;
+  waterNoise.filter.connect(water);
+
+  const faunaOscillator = context.createOscillator();
+  faunaOscillator.type = 'sine';
+  faunaOscillator.frequency.value = 2380;
+  const faunaCarrier = context.createGain();
+  faunaCarrier.gain.value = 0.012;
+  const faunaPulse = context.createOscillator();
+  faunaPulse.frequency.value = 0.12;
+  const faunaDepth = context.createGain();
+  faunaDepth.gain.value = 0.009;
+  faunaPulse.connect(faunaDepth).connect(faunaCarrier.gain);
+  faunaOscillator.connect(faunaCarrier).connect(fauna);
+  faunaOscillator.start();
+  faunaPulse.start();
+
+  const airTone = context.createOscillator();
+  airTone.type = 'sine';
+  airTone.frequency.value = 146.83;
+  const toneFilter = context.createBiquadFilter();
+  toneFilter.type = 'lowpass';
+  toneFilter.frequency.value = 310;
+  airTone.connect(toneFilter).connect(tone);
+  airTone.start();
+
+  return {
+    context,
+    master,
+    wind,
+    water,
+    fauna,
+    tone,
+    sources: [windNoise.source, waterNoise.source, faunaOscillator, faunaPulse, airTone],
+  };
+}
+
+function setAmbientSeason(engine: AmbientEngine, season: string, immediate = false) {
+  const profile = soundProfiles[season] ?? soundProfiles.Spring;
+  const now = engine.context.currentTime;
+  [engine.wind, engine.water, engine.fauna, engine.tone].forEach((channel, index) => {
+    channel.gain.cancelScheduledValues(now);
+    channel.gain.setValueAtTime(channel.gain.value, now);
+    if (immediate) channel.gain.setValueAtTime(profile[index], now);
+    else channel.gain.linearRampToValueAtTime(profile[index], now + 3.2);
+  });
+}
 function Artwork({
   work,
   className = '',
@@ -75,7 +178,7 @@ function Artwork({
     />
   );
 }
-function Hero() {
+function Hero({ soundMode, onToggleSound }: { soundMode: SoundMode; onToggleSound: () => void }) {
   const heroWork = works.find((work) => work.season.includes('Spring'))!;
   return (
     <>
@@ -87,6 +190,17 @@ function Hero() {
           <a href="#seasons">Seasons / 四时</a>
           <a href="#gallery">Works / 作品</a>
         </nav>
+        <button
+          className="sound-toggle"
+          type="button"
+          aria-pressed={soundMode === 'on'}
+          aria-label={`${soundMode === 'on' ? 'Mute' : soundMode === 'paused' ? 'Resume' : 'Enable'} ambient sound / ${soundMode === 'on' ? '关闭' : '开启'}环境声`}
+          onClick={onToggleSound}
+        >
+          <span className="sound-mark" aria-hidden="true"><i /><i /><i /></span>
+          <span>SOUND / 声音</span>
+          <b>{soundMode === 'on' ? 'ON' : soundMode === 'paused' ? 'RESUME' : 'OFF'}</b>
+        </button>
         <span>UTAGAWA · 1797–1858</span>
       </header>
       <section className="hero" aria-labelledby="exhibition-title">
@@ -134,7 +248,10 @@ export default function Exhibition() {
   const [detailOpen, setDetailOpen] = useState(false);
   const [detailIds, setDetailIds] = useState<number[]>([]);
   const [journeySeason, setJourneySeason] = useState('Spring');
+  const [soundMode, setSoundMode] = useState<SoundMode>('off');
   const [filterPending, setFilterPending] = useState(false);
+  const ambientEngine = useRef<AmbientEngine | null>(null);
+  const soundSuspendTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const filterTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const filterRequest = useRef({ season: 'All', theme: 'All' });
   const changeFilter = (nextSeason: string, nextTheme: string) => {
@@ -151,6 +268,46 @@ export default function Exhibition() {
     }, duration);
   };
   useEffect(() => () => { if (filterTimer.current) clearTimeout(filterTimer.current); }, []);
+  useEffect(() => {
+    const preferenceTimer = setTimeout(() => {
+      if (sessionStorage.getItem('hiroshige-ambient-sound') === 'on') setSoundMode('paused');
+    }, 0);
+    return () => {
+      clearTimeout(preferenceTimer);
+      if (soundSuspendTimer.current) clearTimeout(soundSuspendTimer.current);
+      void ambientEngine.current?.context.close();
+    };
+  }, []);
+  useEffect(() => {
+    if (ambientEngine.current) setAmbientSeason(ambientEngine.current, journeySeason);
+  }, [journeySeason]);
+
+  const toggleSound = async () => {
+    if (soundMode === 'on') {
+      const engine = ambientEngine.current;
+      if (engine) {
+        const now = engine.context.currentTime;
+        engine.master.gain.cancelScheduledValues(now);
+        engine.master.gain.setValueAtTime(engine.master.gain.value, now);
+        engine.master.gain.linearRampToValueAtTime(0, now + 0.7);
+        soundSuspendTimer.current = setTimeout(() => engine.context.suspend(), 760);
+      }
+      sessionStorage.setItem('hiroshige-ambient-sound', 'off');
+      setSoundMode('off');
+      return;
+    }
+    if (soundSuspendTimer.current) clearTimeout(soundSuspendTimer.current);
+    const engine = ambientEngine.current ?? createAmbientEngine();
+    ambientEngine.current = engine;
+    setAmbientSeason(engine, journeySeason, true);
+    await engine.context.resume();
+    const now = engine.context.currentTime;
+    engine.master.gain.cancelScheduledValues(now);
+    engine.master.gain.setValueAtTime(engine.master.gain.value, now);
+    engine.master.gain.linearRampToValueAtTime(0.018, now + 1.4);
+    sessionStorage.setItem('hiroshige-ambient-sound', 'on');
+    setSoundMode('on');
+  };
 
   // One observer per wall refresh; revealed works are unobserved immediately.
   // Content stays visible without JavaScript or IntersectionObserver.
@@ -283,7 +440,7 @@ export default function Exhibition() {
   }, []);
   return (
     <main id="top">
-      <Hero />
+      <Hero soundMode={soundMode} onToggleSound={toggleSound} />
       <section
         id="seasons"
         className="seasons-section"
