@@ -1031,3 +1031,111 @@ footer { display: block; padding-top: 0; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none!important; transition: none!important; scroll-behavior: auto!important; } }
 .footer-poem > p.closing-label { font: 9px/1.6 Arial,sans-serif; letter-spacing: 1.6px; margin: 0 0 32px; }
 .collection-actions { width: 100%; justify-self: stretch; }
+/* Phase 2: shared restrained motion; original artwork is never transformed destructively. */
+:root { --motion-section:560ms; --motion-artwork:600ms; --motion-hover:360ms; --motion-modal:280ms; --motion-filter:200ms; --motion-season:600ms; --motion-ease:cubic-bezier(.22,.61,.36,1); --motion-distance:8px; }
+[data-reveal] { transition:opacity var(--motion-section) var(--motion-ease),transform var(--motion-section) var(--motion-ease); }
+[data-reveal='pending'] { opacity:0; transform:translateY(var(--motion-distance)); }
+[data-reveal='visible'],[data-reveal]:focus-within { opacity:1; transform:none; }
+.hero-copy { animation:appear var(--motion-section) var(--motion-ease) both; }
+.hero-art { animation:appear var(--motion-artwork) var(--motion-ease) 80ms both; }
+.art-card[data-reveal] { transition-duration:var(--motion-artwork); }
+.art-card:nth-child(4n+2) { transition-delay:30ms; }
+.art-card:nth-child(4n+3) { transition-delay:60ms; }
+.art-card:nth-child(4n) { transition-delay:90ms; }
+.season-entry,.art-card-caption,.filters button { transition:opacity var(--motion-hover) var(--motion-ease),border-color var(--motion-hover) var(--motion-ease); }
+.season-entry::after { transition:width var(--motion-season) var(--motion-ease),opacity var(--motion-hover) var(--motion-ease); }
+.gallery-wall { transition:opacity var(--motion-filter) var(--motion-ease); min-height:420px; }
+.gallery-wall.is-filtering { opacity:.35; pointer-events:none; }
+.year-journey { position:relative; }
+.year-cue { position:sticky; top:0; z-index:5; display:flex; align-items:center; justify-content:center; gap:34px; min-height:60px; background:#f2eee4; border-block:1px solid var(--line); }
+.year-cue a { font-size:13px; color:var(--soft); padding:15px 0; position:relative; min-height:44px; }
+.year-cue a span { margin-left:9px; font-size:12px; }
+.year-cue a::after { content:''; position:absolute; left:0; bottom:8px; width:8px; height:1px; background:currentColor; opacity:.25; transition:width var(--motion-season) var(--motion-ease),opacity var(--motion-hover); }
+.year-cue a[aria-current],.year-cue a:hover { color:var(--ink); }
+.year-cue a[aria-current]::after,.year-cue a:focus-visible::after { width:100%; opacity:.65; }
+.season-chapter { position:relative; display:grid; grid-template-columns:1fr 1fr; gap:10%; align-items:center; padding:110px 14% 130px; min-height:850px; scroll-margin-top:60px; }
+.chapter-copy { max-width:410px; }
+.chapter-copy .eyebrow { margin-bottom:38px; font-size:10px; }
+.chapter-copy h2 { font-size:clamp(48px,5vw,76px); font-weight:400; letter-spacing:-2px; line-height:1.15; }
+.chapter-copy h2 span { display:block; font-size:28px; letter-spacing:4px; margin-top:20px; }
+.chapter-line { font-size:23px; line-height:1.55; margin-top:44px; }
+.chapter-poem { font-size:17px; color:var(--soft); letter-spacing:2px; line-height:1.9; margin-top:17px; }
+.chapter-link { margin-top:40px; color:var(--soft); min-height:44px; position:relative; }
+.chapter-link::after { content:''; position:absolute; bottom:-1px; left:0; width:20%; height:1px; background:var(--soft); transition:width var(--motion-season) var(--motion-ease); }
+.chapter-link:hover::after,.chapter-link:focus-visible::after { width:100%; }
+.chapter-art { justify-self:center; width:100%; max-width:330px; transition-duration:var(--motion-artwork); }
+.chapter-art button { width:100%; display:block; padding:0; }
+.chapter-art img { width:100%; height:560px; display:block; object-fit:contain; }
+.chapter-art figcaption { display:flex; flex-direction:column; gap:8px; font-size:12px; letter-spacing:.3px; color:var(--soft); margin-top:24px; text-align:center; line-height:1.7; }
+.chapter-rule { position:absolute; bottom:0; left:14%; width:72%; height:1px; background:var(--line); }
+.chapter-spring { background:#f6f2e9; padding-top:140px; padding-bottom:155px; }
+.chapter-summer { background:#f1ebdf; grid-template-columns:1.1fr 1fr; gap:8%; padding-top:88px; padding-bottom:100px; }
+.chapter-summer .chapter-art { grid-column:1; grid-row:1; max-width:365px; }
+.chapter-summer .chapter-copy { grid-column:2; grid-row:1; }
+.chapter-summer .chapter-art img { height:610px; }
+.chapter-autumn { background:#f3eee5; padding-top:160px; padding-bottom:180px; }
+.chapter-autumn .chapter-copy { align-self:start; margin-top:80px; }
+.chapter-autumn .chapter-art { max-width:290px; }
+.chapter-winter { background:#f5f3ed; padding-top:120px; padding-bottom:140px; }
+.chapter-winter .chapter-art { grid-column:1; grid-row:1; max-width:280px; }
+.chapter-winter .chapter-copy { grid-column:2; grid-row:1; }
+.chapter-winter .chapter-line { font-size:21px; color:var(--soft); }
+.chapter-winter .chapter-art img { height:510px; }
+/* Native scroll timelines; unsupported browsers retain intersection reveals. */
+@supports (animation-timeline:view()) { @media (prefers-reduced-motion:no-preference) {
+ .season-chapter { view-timeline-name:--season-view; view-timeline-axis:block; }
+ .chapter-art button { animation:seasonal-breath linear both; animation-timeline:--season-view; animation-range:entry 0% exit 100%; }
+ .chapter-rule { animation:seasonal-rule linear both; animation-timeline:--season-view; animation-range:entry 0% exit 100%; }
+} }
+@keyframes seasonal-breath { from { transform:translateY(6px); opacity:.9; } 35%,65% { opacity:1; } to { transform:translateY(-6px); opacity:.94; } }
+@keyframes seasonal-rule { from { transform:translateY(4px); opacity:.4; } to { transform:translateY(-4px); opacity:1; } }
+[data-slot='dialog-overlay'] { animation:none!important; opacity:1; transition:opacity var(--motion-modal) var(--motion-ease); }
+[data-slot='dialog-overlay'][data-starting-style],[data-slot='dialog-overlay'][data-ending-style] { opacity:0; }
+.artwork-dialog[data-slot='dialog-content'] { animation:none; opacity:1; transform:translateY(0); transition:opacity var(--motion-modal) var(--motion-ease),transform var(--motion-modal) var(--motion-ease); }
+.artwork-dialog[data-starting-style],.artwork-dialog[data-ending-style] { opacity:0; transform:translateY(8px); }
+.detail-print-reveal { display:block; height:100%; width:100%; animation:appear var(--motion-artwork) var(--motion-ease); }
+.detail-copy { animation:appear var(--motion-section) var(--motion-ease); }
+.study-toggle { font-size:12px; min-height:44px; padding:6px 10px; border-bottom:1px solid var(--line); }
+.study-mode .detail-body { display:block; overflow:auto; }
+.study-mode .detail-image-area { height:100%; display:block; padding:30px; }
+.study-mode .detail-copy { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); padding:0; }
+.study-mode .zoom-image { width:100%; height:auto; }
+.study-mode .detail-print-reveal { height:auto; }
+.study-mode .zoom-image img { height:auto; min-height:0; width:min(100%,460px); max-width:100%; margin:0 auto; display:block; }
+@media (min-width:701px) and (max-width:1000px) {
+ .hero { padding-inline:8%; gap:5%; } .hero h1 { font-size:78px; } .enter { gap:14px; font-size:14px; }
+ .season-chapter { padding-inline:9%; gap:9%; min-height:780px; } .chapter-line { font-size:21px; }
+ .chapter-art img { height:510px; } .chapter-summer .chapter-art img { height:550px; } .detail-copy { padding:28px 22px; }
+}
+@media (max-width:700px) {
+ .hero { padding:40px 8% 72px; gap:34px; } .hero h1 { font-size:78px; } .hero h2 { font-size:39px; line-height:1.13; }
+ .hero .eyebrow { font-size:9px; letter-spacing:1px; } .hero .chinese { font-size:18px; letter-spacing:2px; }
+ .hero-art { width:70%; justify-self:end; margin-right:5%; } .hero-art img { height:440px; }
+ .hero-art figcaption { flex-direction:column; text-align:left; font-size:10px; }
+ .year-cue { gap:19px; min-height:56px; justify-content:center; } .year-cue a { font-size:12px; } .year-cue a span { margin-left:4px; font-size:12px; }
+ .season-chapter { display:flex; flex-direction:column; align-items:stretch; padding:70px 9% 85px; min-height:0; gap:45px; scroll-margin-top:56px; }
+ .chapter-copy { max-width:100%; } .chapter-copy .eyebrow { margin-bottom:24px; } .chapter-copy h2 { font-size:50px; }
+ .chapter-copy h2 span { display:inline-block; margin:0 0 0 17px; font-size:25px; }
+ .chapter-line { font-size:21px; margin-top:26px; max-width:285px; } .chapter-poem { font-size:16px; letter-spacing:1px; margin-top:12px; }
+ .chapter-link { margin-top:22px; font-size:13px; } .chapter-art { width:73%; max-width:260px; align-self:flex-end; margin-right:3%; }
+ .chapter-art img { height:460px; } .chapter-art figcaption { font-size:12px; margin-top:18px; }
+ .chapter-summer { padding-top:60px; gap:30px; } .chapter-summer .chapter-art { width:85%; align-self:flex-start; margin-left:3%; } .chapter-summer .chapter-art img { height:490px; }
+ .chapter-autumn { padding-top:90px; padding-bottom:105px; gap:62px; } .chapter-autumn .chapter-copy { margin-top:0; } .chapter-autumn .chapter-art { width:70%; }
+ .chapter-winter { padding-top:72px; gap:55px; } .chapter-winter .chapter-art { width:65%; align-self:center; margin:0; } .chapter-winter .chapter-art img { height:420px; }
+ .chapter-rule { left:9%; width:82%; } .theme-filter { gap:0 22px; } .art-card-caption p { font-size:12px; }
+ .detail-toolbar { gap:8px; padding-inline:12px; } .detail-toolbar > span { font-size:9px; letter-spacing:.7px; }
+ .close-detail { min-width:82px; gap:8px; } .study-toggle { font-size:11px; padding-inline:2px; }
+ .study-mode .detail-image-area { padding:22px; min-height:0; } .study-mode .zoom-image img { width:100%; }
+}
+@media (prefers-reduced-motion:reduce) {
+ *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
+ [data-reveal='pending'] { opacity:1; transform:none; } .gallery-wall.is-filtering { opacity:1; }
+}
+/* Tablet reading room: stack metadata below the print instead of squeezing a narrow column. */
+@media (min-width:701px) and (max-width:900px) {
+ .detail-body { display:block; overflow-y:auto; }
+ .detail-image-area { height:58svh; min-height:440px; }
+ .detail-copy { overflow:visible; padding:35px 44px; }
+ .historical>div,.editorial>div { grid-template-columns:120px 1fr; }
+ .study-mode .detail-image-area { height:100%; min-height:0; }
+}

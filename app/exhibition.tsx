@@ -18,8 +18,8 @@ import catalog from './catalog.json';
 import imageSizes from './image-sizes.json';
 type Work = (typeof catalog.works)[number];
 const works = catalog.works;
-const themes = ['All', 'Flowers', 'Birds', 'Moon', 'Rain', 'Snow', 'Animals'];
-const themeZh = ['全部', '花', '鸟', '月', '雨', '雪', '动物'];
+const themes = ['All', 'Birds', 'Flowers', 'Moon', 'Rain', 'Snow', 'Animals'];
+const themeZh = ['全部', '鸟', '花', '月', '雨', '雪', '动物'];
 const seasons = [
   {
     name: 'Spring',
@@ -90,7 +90,7 @@ function Hero() {
         <span>UTAGAWA · 1797–1858</span>
       </header>
       <section className="hero" aria-labelledby="exhibition-title">
-        <div className="hero-copy">
+        <div className="hero-copy" data-reveal="">
           <p className="eyebrow">AN EXHIBITION IN FOUR SEASONS · 花鸟画展</p>
           <h1 id="exhibition-title">Hiroshige</h1>
           <h2>
@@ -110,7 +110,7 @@ function Hero() {
             Enter the Exhibition <span lang="zh">进入展览 <span className="entrance-arrow" aria-hidden="true">↘</span></span>
           </a>
         </div>
-        <figure className="hero-art">
+        <figure className="hero-art" data-reveal="">
           <Artwork work={heroWork} priority />
           <figcaption>
             A MOMENT IN SPRING <span lang="zh">{heroWork.title_zh}</span>
@@ -131,6 +131,67 @@ export default function Exhibition() {
   const [theme, setTheme] = useState('All');
   const [selected, setSelected] = useState<number | null>(null);
   const [zoom, setZoom] = useState(false);
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [detailIds, setDetailIds] = useState<number[]>([]);
+  const [journeySeason, setJourneySeason] = useState('Spring');
+  const [filterPending, setFilterPending] = useState(false);
+  const filterTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const filterRequest = useRef({ season: 'All', theme: 'All' });
+  const changeFilter = (nextSeason: string, nextTheme: string) => {
+    filterRequest.current = { season: nextSeason, theme: nextTheme };
+    if (filterTimer.current) clearTimeout(filterTimer.current);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setSeason(nextSeason); setTheme(nextTheme); setFilterPending(false);
+      return;
+    }
+    setFilterPending(true);
+    const duration = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--motion-filter')) || 200;
+    filterTimer.current = setTimeout(() => {
+      setSeason(nextSeason); setTheme(nextTheme); setFilterPending(false);
+    }, duration);
+  };
+  useEffect(() => () => { if (filterTimer.current) clearTimeout(filterTimer.current); }, []);
+
+  // One observer per wall refresh; revealed works are unobserved immediately.
+  // Content stays visible without JavaScript or IntersectionObserver.
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let observer: IntersectionObserver | undefined;
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
+    const setup = () => {
+      observer?.disconnect();
+      if (media.matches || !('IntersectionObserver' in window)) {
+        targets.forEach(el => { el.dataset.reveal = 'visible'; });
+        return;
+      }
+      observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).dataset.reveal = 'visible';
+            observer?.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.06, rootMargin: '0px 0px 24px 0px' });
+      targets.forEach(el => {
+        if (el.dataset.reveal === 'visible') return;
+        el.dataset.reveal = 'pending';
+        observer?.observe(el);
+      });
+    };
+    setup(); media.addEventListener('change', setup);
+    return () => { observer?.disconnect(); media.removeEventListener('change', setup); };
+  }, [season, theme]);
+
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setJourneySeason((entry.target as HTMLElement).dataset.season!);
+      });
+    }, { rootMargin: '-30% 0px -45% 0px', threshold: 0 });
+    document.querySelectorAll('[data-season]').forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
   const opener = useRef<HTMLButtonElement | null>(null);
   const imageArea = useRef<HTMLDivElement | null>(null);
   const filtered = useMemo(
@@ -144,11 +205,12 @@ export default function Exhibition() {
   );
   const active =
     selected === null ? null : works.find((w) => w.id === selected)!;
-  const index = filtered.findIndex((w) => w.id === selected);
+  const detailWorks = detailIds.length ? detailIds.map(id => works.find(w => w.id === id)!) : works;
+  const index = detailWorks.findIndex((w) => w.id === selected);
   const changeWork = (direction: number) => {
-    if (!filtered.length) return;
+    if (!detailWorks.length) return;
     setSelected(
-      filtered[(index + direction + filtered.length) % filtered.length].id,
+      detailWorks[(index + direction + detailWorks.length) % detailWorks.length].id,
     );
     setZoom(false);
     imageArea.current?.scrollTo(0, 0);
@@ -195,7 +257,10 @@ export default function Exhibition() {
             )
               throw new Error('Choose a supported season and theme.');
             flushSync(() => {
-              setSelected(null);
+              setDetailOpen(false);
+              if (filterTimer.current) clearTimeout(filterTimer.current);
+              setFilterPending(false);
+              filterRequest.current = { season: value.season, theme: value.theme };
               setSeason(value.season);
               setTheme(value.theme);
             });
@@ -245,12 +310,9 @@ export default function Exhibition() {
             <button
               key={s.name}
               className="season-entry"
-              aria-label={s.name + ' / ' + s.zh}
-              aria-pressed={season === s.name}
+              aria-label={'Begin ' + s.name + ' / ' + s.zh}
               onClick={() => {
-                setSeason(s.name);
-                setTheme('All');
-                document.getElementById('gallery')?.scrollIntoView();
+                document.getElementById('journey-' + s.name.toLowerCase())?.scrollIntoView();
               }}
             >
               <div className="season-art">
@@ -272,6 +334,30 @@ export default function Exhibition() {
           ))}
         </div>
       </section>
+      <div className="year-journey" aria-label="Through the year / 四时之旅">
+        <nav className="year-cue" aria-label="Seasonal journey progress">
+          {seasons.map(s => <a key={s.name} href={'#journey-' + s.name.toLowerCase()} aria-current={journeySeason === s.name ? 'step' : undefined}>{s.name}<span lang="zh">{s.zh}</span></a>)}
+        </nav>
+        {seasons.map((s, i) => {
+          const representative = works.find(w => w.id === s.id)!;
+          return <section key={s.name} id={'journey-' + s.name.toLowerCase()} data-season={s.name} className={'season-chapter chapter-' + s.name.toLowerCase()} aria-labelledby={'chapter-title-' + s.name}>
+            <div className="chapter-copy" data-reveal="">
+              <p className="eyebrow">0{i + 1} / A YEAR IN PASSING</p>
+              <h2 id={'chapter-title-' + s.name}>{s.name} <span lang="zh">{s.zh}</span></h2>
+              <p className="chapter-line">{s.line}</p>
+              <p className="chapter-poem" lang="zh">{s.poem}</p>
+              <button className="text-link chapter-link" onClick={() => { changeFilter(s.name, 'All'); document.getElementById('gallery')?.scrollIntoView(); }}>Explore {s.name} / {s.zh}之画册 <span aria-hidden="true">↘</span></button>
+            </div>
+            <figure className="chapter-art" data-reveal="">
+              <button aria-label={'Study ' + representative.title_en + ' / ' + representative.title_zh} onClick={event => { opener.current = event.currentTarget; setDetailIds(seasons.map(season => season.id)); setSelected(representative.id); setZoom(false); setDetailOpen(true); }}>
+                <Artwork work={representative} />
+              </button>
+              <figcaption><span lang="zh">{representative.title_zh}</span><span>{representative.title_en}</span></figcaption>
+            </figure>
+            <span className="chapter-rule" aria-hidden="true" />
+          </section>;
+        })}
+      </div>
       <section className="page-turn" aria-labelledby="fragments-title">
         <span className="page-turn-rule" aria-hidden="true" />
         <div><p className="eyebrow">INTERLUDE / 自然片段</p>
@@ -315,7 +401,7 @@ export default function Exhibition() {
               <button
                 key={s}
                 aria-pressed={season === s}
-                onClick={() => setSeason(s)}
+                onClick={() => changeFilter(s, filterRequest.current.theme)}
               >
                 {s === 'All' ? 'All seasons / 四时' : s}
               </button>
@@ -329,7 +415,7 @@ export default function Exhibition() {
               <button
                 key={t}
                 aria-pressed={theme === t}
-                onClick={() => setTheme(t)}
+                onClick={() => changeFilter(filterRequest.current.season, t)}
               >
                 {t}
                 <span lang="zh">{themeZh[i]}</span>
@@ -343,16 +429,19 @@ export default function Exhibition() {
           </p>
           <span>LOOK CLOSER · 点击细赏</span>
         </div>
+        <div className={'gallery-wall' + (filterPending ? ' is-filtering' : '')} aria-busy={filterPending}>
         {filtered.length ? (
           <div className="art-grid">
             {filtered.map((w) => (
               <button
                 key={w.id}
-                className="art-card"
+                className="art-card" data-reveal=""
                 aria-label={w.title_zh + ' / ' + w.title_en + ' — ' + w.id}
                 onClick={(event) => {
                   opener.current = event.currentTarget;
+                  setDetailIds(filtered.map(work => work.id));
                   setSelected(w.id);
+                  setDetailOpen(true);
                   setZoom(false);
                 }}
               >
@@ -378,14 +467,14 @@ export default function Exhibition() {
             <button
               className="text-link"
               onClick={() => {
-                setSeason('All');
-                setTheme('All');
+                changeFilter('All', 'All');
               }}
             >
               View all 114 works / 查看全部作品 →
             </button>
           </Empty>
         )}
+        </div>
       </section>
       <footer>
         <div className="footer-poem">
@@ -424,25 +513,25 @@ export default function Exhibition() {
         </div>
       </footer>
       <Dialog
-        open={active !== null}
+        open={detailOpen}
+        onOpenChangeComplete={(open) => { if (!open) { setSelected(null); setZoom(false); } }}
         onOpenChange={(open) => {
           if (!open) {
-            setSelected(null);
-            setZoom(false);
+            setDetailOpen(false);
           }
         }}
       >
         {active && (
           <DialogContent
-            className="artwork-dialog"
+            className={'artwork-dialog' + (zoom ? ' study-mode' : '')}
             showCloseButton={false}
             finalFocus={() => opener.current}
             onKeyDown={(event) => {
-              if (event.key === 'ArrowRight') {
+              if (!zoom && event.key === 'ArrowRight') {
                 event.preventDefault();
                 changeWork(1);
               }
-              if (event.key === 'ArrowLeft') {
+              if (!zoom && event.key === 'ArrowLeft') {
                 event.preventDefault();
                 changeWork(-1);
               }
@@ -450,6 +539,7 @@ export default function Exhibition() {
           >
             <div className="detail-toolbar">
               <span>HIROSHIGE / {String(active.id).padStart(3, '0')}</span>
+              <button className="study-toggle" aria-pressed={zoom} onClick={() => setZoom(!zoom)}>{zoom ? 'Full print / 查看全画' : 'Detail study / 细赏'}</button>
               <DialogClose className="close-detail">
                 Close / 关闭 <span aria-hidden="true">×</span>
               </DialogClose>
@@ -465,10 +555,10 @@ export default function Exhibition() {
                   aria-label={zoom ? 'Zoom out / 缩小' : 'Zoom in / 放大'}
                   aria-pressed={zoom}
                 >
-                  <Artwork work={active} priority />
+                  <span className="detail-print-reveal" key={active.id}><Artwork work={active} priority /></span>
                 </button>
               </div>
-              <div className="detail-copy">
+              <div className="detail-copy" key={active.id}>
                 <p className="eyebrow">UTAGAWA HIROSHIGE · 歌川广重</p>
                 <DialogTitle className="detail-title">
                   <span lang="zh">{active.title_zh}</span>
@@ -512,6 +602,7 @@ export default function Exhibition() {
                 </p>
                 <button
                   className="text-link zoom-control"
+                  tabIndex={zoom ? -1 : 0}
                   aria-pressed={zoom}
                   onClick={() => setZoom(!zoom)}
                 >
@@ -531,7 +622,7 @@ export default function Exhibition() {
                 ← Previous / 上一幅
               </button>
               <span aria-live="polite">
-                {index + 1} / {filtered.length}
+                {index + 1} / {detailWorks.length}
               </span>
               <button onClick={() => changeWork(1)}>Next / 下一幅 →</button>
             </div>
