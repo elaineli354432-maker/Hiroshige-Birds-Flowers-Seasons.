@@ -583,6 +583,16 @@ export default function Exhibition() {
                     </div>
                   )}
                 </dl>
+                {(active.seasonal_note_zh || active.seasonal_note_en) && (
+                  <aside className="seasonal-note" aria-labelledby="seasonal-note-title">
+                    <div className="seasonal-note-heading" id="seasonal-note-title">
+                      <span>SEASONAL NOTE</span>
+                      <span lang="zh">季节注</span>
+                    </div>
+                    {active.seasonal_note_zh && <p lang="zh">{active.seasonal_note_zh}</p>}
+                    {active.seasonal_note_en && <p>{active.seasonal_note_en}</p>}
+                  </aside>
+                )}
                 <DialogDescription className="detail-blurb" render={<div />}>
                   <p lang="zh">{active.blurb_zh}</p>
                   <p>{active.blurb_en}</p>

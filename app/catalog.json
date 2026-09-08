@@ -32,7 +32,13 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "001-bird-and-chrysanthemums.jpg"
+      "web_image_filename": "001-bird-and-chrysanthemums.jpg",
+      "seasonal_note_zh": "菊与柿在日本传统艺术中常承担秋季、乃至秋末向冬季过渡的时间提示。大都会关于日本季节图像的研究特别把菊与枝叶渐落的柿树列为秋冬题材的典型季节线索。",
+      "seasonal_note_en": "Chrysanthemums and persimmons often serve as markers of autumn—and sometimes the transition from late autumn toward winter—in Japanese art. The Met specifically identifies chrysanthemums and persimmons on increasingly bare trees as characteristic autumnal and winter seasonal references.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 2,
@@ -62,7 +68,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "002-bird-and-double-cherry.jpg"
+      "web_image_filename": "002-bird-and-double-cherry.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 3,
@@ -92,7 +102,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "003-bird-and-wild-cherry.jpg"
+      "web_image_filename": "003-bird-and-wild-cherry.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 4,
@@ -122,7 +136,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "004-bird-on-hibiscus.jpg"
+      "web_image_filename": "004-bird-on-hibiscus.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 5,
@@ -151,7 +169,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "005-blue-bird-and-roses.jpg"
+      "web_image_filename": "005-blue-bird-and-roses.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 6,
@@ -180,7 +202,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "006-bluebird-and-hollyhock.jpg"
+      "web_image_filename": "006-bluebird-and-hollyhock.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 7,
@@ -210,7 +236,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "007-bluebird-on-camellia-branch.jpg"
+      "web_image_filename": "007-bluebird-on-camellia-branch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 8,
@@ -240,7 +270,11 @@
       "blurb_en": "A compact nature study of animals, water, with a vivid, observant mood and a strong sense of autumn.",
       "match_score": 0.704,
       "match_status": "matched",
-      "web_image_filename": "008-boar-with-waterfall-and-bush-clover.jpg"
+      "web_image_filename": "008-boar-with-waterfall-and-bush-clover.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 9,
@@ -270,7 +304,11 @@
       "blurb_en": "A compact nature study of flowers, animals, with a vivid, observant mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "009-bull-amid-peach-blossom.jpg"
+      "web_image_filename": "009-bull-amid-peach-blossom.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 10,
@@ -297,7 +335,11 @@
       "blurb_en": "A compact nature study of nature, with a wistful mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "010-butterflies-and-bush-clover.jpg"
+      "web_image_filename": "010-butterflies-and-bush-clover.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 11,
@@ -327,7 +369,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "011-camellia-and-finch.jpg"
+      "web_image_filename": "011-camellia-and-finch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 12,
@@ -358,7 +404,14 @@
       "blurb_en": "A compact nature study of flowers, snow, with a still, spare mood and a strong sense of spring.",
       "match_score": 0.786,
       "match_status": "matched",
-      "web_image_filename": "012-camellia-blossoms-in-snow.jpg"
+      "web_image_filename": "012-camellia-blossoms-in-snow.jpg",
+      "seasonal_note_zh": "“雪中山茶”在日本花鸟画中并不矛盾。山茶类花木常被用于寒季图景；大都会艺术博物馆亦收藏广重《雪覆山茶与麻雀》，并在其他秋冬花鸟屏风中将山茶类列入冬季意象。这里的“花开于雪中”尤其适合被理解为冬末、向春天过渡的物候瞬间。",
+      "seasonal_note_en": "Snow and camellia are not contradictory in Japanese bird-and-flower imagery. Camellias appear in cold-season imagery, and The Met holds Hiroshige’s *Sparrow and Snow-covered Camellia*. In seasonal programs, camellia can function as a winter motif. The combination is especially evocative of late winter and the threshold of spring.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/56949",
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 13,
@@ -388,7 +441,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "013-canary-and-wisteria.jpg"
+      "web_image_filename": "013-canary-and-wisteria.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 14,
@@ -415,7 +472,13 @@
       "blurb_en": "A compact nature study of flowers, with a wistful mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "014-chrysanthemums.jpg"
+      "web_image_filename": "014-chrysanthemums.jpg",
+      "seasonal_note_zh": "菊与柿在日本传统艺术中常承担秋季、乃至秋末向冬季过渡的时间提示。大都会关于日本季节图像的研究特别把菊与枝叶渐落的柿树列为秋冬题材的典型季节线索。",
+      "seasonal_note_en": "Chrysanthemums and persimmons often serve as markers of autumn—and sometimes the transition from late autumn toward winter—in Japanese art. The Met specifically identifies chrysanthemums and persimmons on increasingly bare trees as characteristic autumnal and winter seasonal references.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 15,
@@ -442,7 +505,11 @@
       "blurb_en": "A compact nature study of flowers, with a lush mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "015-clematis.jpg"
+      "web_image_filename": "015-clematis.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 16,
@@ -470,7 +537,11 @@
       "blurb_en": "A compact nature study of birds, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "016-crane-and-asters.jpg"
+      "web_image_filename": "016-crane-and-asters.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 17,
@@ -500,7 +571,14 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "017-crane-and-autumn-flowers.jpg"
+      "web_image_filename": "017-crane-and-autumn-flowers.jpg",
+      "seasonal_note_zh": "秋草并不是泛指“秋天的植物”，而是一套历史悠久的诗画语汇。月、芒草、胡枝子等组合自平安时代以来便频繁唤起秋夜、清寂与怀旧感，因此这类作品的季节性通常比现代植物花期判断更明确。",
+      "seasonal_note_en": "“Autumn grasses” are more than a generic botanical label: they belong to a long poetic and pictorial vocabulary. Combinations of moon, pampas grass, bush clover, and other autumn plants have evoked autumn nights, clarity, and nostalgia since the Heian period, making their seasonal meaning especially strong.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/48923",
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 18,
@@ -527,7 +605,14 @@
       "blurb_en": "A compact nature study of birds, with a wistful mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "018-crane-and-autumn-grasses.jpg"
+      "web_image_filename": "018-crane-and-autumn-grasses.jpg",
+      "seasonal_note_zh": "秋草并不是泛指“秋天的植物”，而是一套历史悠久的诗画语汇。月、芒草、胡枝子等组合自平安时代以来便频繁唤起秋夜、清寂与怀旧感，因此这类作品的季节性通常比现代植物花期判断更明确。",
+      "seasonal_note_en": "“Autumn grasses” are more than a generic botanical label: they belong to a long poetic and pictorial vocabulary. Combinations of moon, pampas grass, bush clover, and other autumn plants have evoked autumn nights, clarity, and nostalgia since the Heian period, making their seasonal meaning especially strong.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/48923",
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 19,
@@ -556,7 +641,11 @@
       "blurb_en": "A compact nature study of birds, rain, with a atmospheric, transient mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "019-cuckoo-flying-through-rain.jpg"
+      "web_image_filename": "019-cuckoo-flying-through-rain.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 20,
@@ -586,7 +675,11 @@
       "blurb_en": "A compact nature study of animals, water, with a vivid, observant mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "020-deer-and-waterfall.jpg"
+      "web_image_filename": "020-deer-and-waterfall.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 21,
@@ -613,7 +706,11 @@
       "blurb_en": "A compact nature study of flowers, with a fresh mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "021-double-cherry-in-flower.jpg"
+      "web_image_filename": "021-double-cherry-in-flower.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 22,
@@ -640,7 +737,11 @@
       "blurb_en": "A compact nature study of flowers, with a lush mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "022-dragonfly-and-begonia.jpg"
+      "web_image_filename": "022-dragonfly-and-begonia.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 23,
@@ -668,7 +769,13 @@
       "blurb_en": "A compact nature study of birds, plants, with a wistful mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "023-ducks-and-reeds.jpg"
+      "web_image_filename": "023-ducks-and-reeds.jpg",
+      "seasonal_note_zh": "芦苇本身不足以把一幅作品机械归入“秋”。在日本季节图像中，芦可以跨越较长物候期；真正具有强冬季指向的是“枯芦”等明确状态。网页的季节判断应结合落花、鸟类、天气与植物状态，而不是仅凭标题中出现 Reeds。",
+      "seasonal_note_en": "Reeds alone are not enough to assign a work mechanically to autumn. In Japanese seasonal imagery they can span a broad part of the year; explicitly withered reeds carry a much stronger winter association. Season should therefore be read together with falling petals, birds, weather, and the condition of the plant rather than from the word “reeds” alone.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 24,
@@ -697,7 +804,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "024-falcon-on-an-ivy-draped-pine-branch.jpg"
+      "web_image_filename": "024-falcon-on-an-ivy-draped-pine-branch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 25,
@@ -727,7 +838,13 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "025-falcon-on-perch-sparrow-and-narcissus.jpg"
+      "web_image_filename": "025-falcon-on-perch-sparrow-and-narcissus.jpg",
+      "seasonal_note_zh": "水仙在日本季节图像中常属于寒季。大都会一件《秋冬花鸟》屏风明确把水仙与山茶、枯芦、鸳鸯等安排在冬景一侧。因此这幅作品虽可被现代花期直觉理解为“早春”，在传统季节语汇中也带有很强的冬末意味。",
+      "seasonal_note_en": "Narcissus often belongs to the cold-season vocabulary of Japanese art. In The Met’s *Birds and Flowers of Autumn and Winter*, narcissus appears on the winter side together with camellia, withered reeds, and mandarin ducks. A modern viewer may read it as early spring, but traditional seasonal imagery also gives it a strong late-winter resonance.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 26,
@@ -757,7 +874,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "026-finch-on-camellia-branch.jpg"
+      "web_image_filename": "026-finch-on-camellia-branch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 27,
@@ -787,7 +908,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "027-finch-on-camellia-branch-2.jpg"
+      "web_image_filename": "027-finch-on-camellia-branch-2.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 28,
@@ -817,7 +942,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "028-finch-on-camellia-branch-3.jpg"
+      "web_image_filename": "028-finch-on-camellia-branch-3.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 29,
@@ -847,7 +976,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "029-finch-on-camellia-branch-4.jpg"
+      "web_image_filename": "029-finch-on-camellia-branch-4.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 30,
@@ -877,7 +1010,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "030-finch-on-camellia-branch-5.jpg"
+      "web_image_filename": "030-finch-on-camellia-branch-5.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 31,
@@ -907,7 +1044,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "031-finch-on-magnolia-branch.jpg"
+      "web_image_filename": "031-finch-on-magnolia-branch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 32,
@@ -937,7 +1078,14 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "032-finch-on-red-plum-branch.jpg"
+      "web_image_filename": "032-finch-on-red-plum-branch.jpg",
+      "seasonal_note_zh": "梅花是日本艺术中重要的早春信号之一；它常在寒意尚存时开放，因此“梅”所指向的并不是完全摆脱冬天后的暖春，而更接近冬末至初春的季节交界。",
+      "seasonal_note_en": "Plum blossom is a major early-spring signal in Japanese art. Because it flowers while the cold still lingers, it often evokes the threshold from late winter into early spring rather than a fully established warm spring.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+        "https://www.metmuseum.org/art/collection/search/77182"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 33,
@@ -967,7 +1115,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "033-finch-on-wisteria-vine.jpg"
+      "web_image_filename": "033-finch-on-wisteria-vine.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 34,
@@ -994,7 +1146,14 @@
       "blurb_en": "A compact nature study of flowers, with a fresh mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "034-flowering-plum-tree.jpg"
+      "web_image_filename": "034-flowering-plum-tree.jpg",
+      "seasonal_note_zh": "梅花是日本艺术中重要的早春信号之一；它常在寒意尚存时开放，因此“梅”所指向的并不是完全摆脱冬天后的暖春，而更接近冬末至初春的季节交界。",
+      "seasonal_note_en": "Plum blossom is a major early-spring signal in Japanese art. Because it flowers while the cold still lingers, it often evokes the threshold from late winter into early spring rather than a fully established warm spring.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+        "https://www.metmuseum.org/art/collection/search/77182"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 35,
@@ -1024,7 +1183,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "035-flying-swallows-and-iris.jpg"
+      "web_image_filename": "035-flying-swallows-and-iris.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 36,
@@ -1054,7 +1217,15 @@
       "blurb_en": "A compact nature study of birds, moon, with a quiet, contemplative mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "036-geese-flying-across-full-moon.jpg"
+      "web_image_filename": "036-geese-flying-across-full-moon.jpg",
+      "seasonal_note_zh": "“月与雁”是高度明确的秋季组合。大都会艺术博物馆指出，广重《满月下的雁》所表现的是阴历八月的满月——传统东亚语境中的秋季高点；在日本四季绘画里，成群飞雁本身也常用来提示秋天。",
+      "seasonal_note_en": "Moon and geese form a strongly autumnal combination. The Met notes that Hiroshige’s image of wild geese crossing the full moon refers to the full moon of the eighth lunar month, the height of autumn. In Japanese four-season painting, a flock of geese is also a conventional marker of autumn.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/36742",
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+        "https://www.metmuseum.org/art/collection/search/53009"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 37,
@@ -1084,7 +1255,15 @@
       "blurb_en": "A compact nature study of birds, moon, with a quiet, contemplative mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "037-geese-flying-across-full-moon-2.jpg"
+      "web_image_filename": "037-geese-flying-across-full-moon-2.jpg",
+      "seasonal_note_zh": "“月与雁”是高度明确的秋季组合。大都会艺术博物馆指出，广重《满月下的雁》所表现的是阴历八月的满月——传统东亚语境中的秋季高点；在日本四季绘画里，成群飞雁本身也常用来提示秋天。",
+      "seasonal_note_en": "Moon and geese form a strongly autumnal combination. The Met notes that Hiroshige’s image of wild geese crossing the full moon refers to the full moon of the eighth lunar month, the height of autumn. In Japanese four-season painting, a flock of geese is also a conventional marker of autumn.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/36742",
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+        "https://www.metmuseum.org/art/collection/search/53009"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 38,
@@ -1113,7 +1292,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "038-golden-pheasant-and-bamboo.jpg"
+      "web_image_filename": "038-golden-pheasant-and-bamboo.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 39,
@@ -1142,7 +1325,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "039-golden-pheasant-and-fern-shoots.jpg"
+      "web_image_filename": "039-golden-pheasant-and-fern-shoots.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 40,
@@ -1171,7 +1358,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 0.819,
       "match_status": "matched",
-      "web_image_filename": "040-golden-pheasant-in-willow-tree.jpg"
+      "web_image_filename": "040-golden-pheasant-in-willow-tree.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 41,
@@ -1198,7 +1389,11 @@
       "blurb_en": "A compact nature study of flowers, with a lush mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "041-grasshopper-and-morning-glories.jpg"
+      "web_image_filename": "041-grasshopper-and-morning-glories.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 42,
@@ -1225,7 +1420,11 @@
       "blurb_en": "A compact nature study of flowers, with a lush mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "042-hibiscus.jpg"
+      "web_image_filename": "042-hibiscus.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 43,
@@ -1252,7 +1451,11 @@
       "blurb_en": "A compact nature study of flowers, with a lush mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "043-hibiscus-2.jpg"
+      "web_image_filename": "043-hibiscus-2.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 44,
@@ -1282,7 +1485,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "044-hibiscus-and-black-naped-oriole.jpg"
+      "web_image_filename": "044-hibiscus-and-black-naped-oriole.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 45,
@@ -1309,7 +1516,14 @@
       "blurb_en": "A compact nature study of birds, with a wistful mood and a strong sense of autumn.",
       "match_score": 0.74,
       "match_status": "matched",
-      "web_image_filename": "045-japanese-pampas-grass-bush-clover-and-red-headed-crane.jpg"
+      "web_image_filename": "045-japanese-pampas-grass-bush-clover-and-red-headed-crane.jpg",
+      "seasonal_note_zh": "秋草并不是泛指“秋天的植物”，而是一套历史悠久的诗画语汇。月、芒草、胡枝子等组合自平安时代以来便频繁唤起秋夜、清寂与怀旧感，因此这类作品的季节性通常比现代植物花期判断更明确。",
+      "seasonal_note_en": "“Autumn grasses” are more than a generic botanical label: they belong to a long poetic and pictorial vocabulary. Combinations of moon, pampas grass, bush clover, and other autumn plants have evoked autumn nights, clarity, and nostalgia since the Heian period, making their seasonal meaning especially strong.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/48923",
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 46,
@@ -1337,7 +1551,13 @@
       "blurb_en": "A compact nature study of birds, plants, with a wistful mood and a strong sense of autumn.",
       "match_score": 0.543,
       "match_status": "matched_manual",
-      "web_image_filename": "046-japanese-white-eyes-on-a-maple-branch.jpg"
+      "web_image_filename": "046-japanese-white-eyes-on-a-maple-branch.jpg",
+      "seasonal_note_zh": "红叶、枫叶是日本艺术中最容易辨认的秋季物候之一。这里把作品归入秋季，主要依据的是季节性叶色，而不是鸟或动物本身。",
+      "seasonal_note_en": "Maple foliage is one of the most legible autumnal signs in Japanese seasonal imagery. The autumn classification here is driven primarily by the changing leaves rather than by the accompanying bird or animal.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 47,
@@ -1367,7 +1587,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "047-kingfisher-and-hydrangea.jpg"
+      "web_image_filename": "047-kingfisher-and-hydrangea.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 48,
@@ -1397,7 +1621,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "048-kingfisher-and-iris.jpg"
+      "web_image_filename": "048-kingfisher-and-iris.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 49,
@@ -1427,7 +1655,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "049-kingfisher-and-iris-2.jpg"
+      "web_image_filename": "049-kingfisher-and-iris-2.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 50,
@@ -1455,7 +1687,13 @@
       "blurb_en": "A compact nature study of birds, plants, with a wistful mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "050-kingfisher-and-reeds.jpg"
+      "web_image_filename": "050-kingfisher-and-reeds.jpg",
+      "seasonal_note_zh": "芦苇本身不足以把一幅作品机械归入“秋”。在日本季节图像中，芦可以跨越较长物候期；真正具有强冬季指向的是“枯芦”等明确状态。网页的季节判断应结合落花、鸟类、天气与植物状态，而不是仅凭标题中出现 Reeds。",
+      "seasonal_note_en": "Reeds alone are not enough to assign a work mechanically to autumn. In Japanese seasonal imagery they can span a broad part of the year; explicitly withered reeds carry a much stronger winter association. Season should therefore be read together with falling petals, birds, weather, and the condition of the plant rather than from the word “reeds” alone.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 51,
@@ -1483,7 +1721,11 @@
       "blurb_en": "A compact nature study of birds, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "051-kingfisher-and-viburnum.jpg"
+      "web_image_filename": "051-kingfisher-and-viburnum.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 52,
@@ -1511,7 +1753,11 @@
       "blurb_en": "A compact nature study of birds, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "052-kingfisher-and-water-plantain.jpg"
+      "web_image_filename": "052-kingfisher-and-water-plantain.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 53,
@@ -1540,7 +1786,11 @@
       "blurb_en": "A compact nature study of flowers, animals, with a vivid, observant mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "053-lion-and-peonies.jpg"
+      "web_image_filename": "053-lion-and-peonies.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 54,
@@ -1570,7 +1820,13 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "054-little-green-birds-and-chrysanthemums.jpg"
+      "web_image_filename": "054-little-green-birds-and-chrysanthemums.jpg",
+      "seasonal_note_zh": "菊与柿在日本传统艺术中常承担秋季、乃至秋末向冬季过渡的时间提示。大都会关于日本季节图像的研究特别把菊与枝叶渐落的柿树列为秋冬题材的典型季节线索。",
+      "seasonal_note_en": "Chrysanthemums and persimmons often serve as markers of autumn—and sometimes the transition from late autumn toward winter—in Japanese art. The Met specifically identifies chrysanthemums and persimmons on increasingly bare trees as characteristic autumnal and winter seasonal references.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 55,
@@ -1600,7 +1856,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 0.612,
       "match_status": "matched_manual",
-      "web_image_filename": "055-long-tailed-bird-and-hibiscus.jpg"
+      "web_image_filename": "055-long-tailed-bird-and-hibiscus.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 56,
@@ -1630,7 +1890,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 0.669,
       "match_status": "matched_manual",
-      "web_image_filename": "056-long-tailed-bird-on-blossoming-peach.jpg"
+      "web_image_filename": "056-long-tailed-bird-on-blossoming-peach.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 57,
@@ -1659,7 +1923,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "057-macaw-on-grapevine.jpg"
+      "web_image_filename": "057-macaw-on-grapevine.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 58,
@@ -1688,7 +1956,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "058-macaw-on-ivy-vine.jpg"
+      "web_image_filename": "058-macaw-on-ivy-vine.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 59,
@@ -1717,7 +1989,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "059-macaw-on-pine-branch.jpg"
+      "web_image_filename": "059-macaw-on-pine-branch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 60,
@@ -1747,7 +2023,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "060-magpie-and-azalea.jpg"
+      "web_image_filename": "060-magpie-and-azalea.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 61,
@@ -1775,7 +2055,13 @@
       "blurb_en": "A compact nature study of birds, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "061-mandarin-ducks.jpg"
+      "web_image_filename": "061-mandarin-ducks.jpg",
+      "seasonal_note_zh": "鸳鸯本身并不是只能属于某一个季节；它还具有成双、和合等独立象征意义。不过在某些日本“秋冬花鸟”的季节编排里，鸳鸯确实被放入冬景。因此网页不宜仅凭“鸳鸯”自动判定季节，应结合竹、雪、冰、枯芦等环境线索阅读。",
+      "seasonal_note_en": "Mandarin ducks are not exclusive to a single season; they also carry independent associations of pairing and harmony. Yet in some Japanese autumn-and-winter seasonal programs they appear in winter scenes. The website therefore should not assign season from “mandarin duck” alone, but read it together with snow, ice, bamboo, withered reeds, and other environmental clues.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 62,
@@ -1805,7 +2091,14 @@
       "blurb_en": "A compact nature study of birds, snow, with a still, spare mood and a strong sense of winter.",
       "match_score": 0.73,
       "match_status": "matched",
-      "web_image_filename": "062-mandarin-duck-on-snowbank.jpg"
+      "web_image_filename": "062-mandarin-duck-on-snowbank.jpg",
+      "seasonal_note_zh": "这类作品的冬季感主要来自“雪”，而不只是鸳鸯本身。日本四季图像中，雪是明确的冬季标志；鸳鸯在部分秋冬花鸟图中也会出现在冬景一侧，因此两者结合时冬意非常清楚。",
+      "seasonal_note_en": "The winter reading here comes primarily from snow, not from the mandarin duck alone. Snow is an explicit winter marker in Japanese four-season imagery, and mandarin ducks also appear on the winter side of some autumn-and-winter bird-and-flower programs.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 63,
@@ -1834,7 +2127,13 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "063-mandarin-ducks-and-bamboo.jpg"
+      "web_image_filename": "063-mandarin-ducks-and-bamboo.jpg",
+      "seasonal_note_zh": "鸳鸯本身并不是只能属于某一个季节；它还具有成双、和合等独立象征意义。不过在某些日本“秋冬花鸟”的季节编排里，鸳鸯确实被放入冬景。因此网页不宜仅凭“鸳鸯”自动判定季节，应结合竹、雪、冰、枯芦等环境线索阅读。",
+      "seasonal_note_en": "Mandarin ducks are not exclusive to a single season; they also carry independent associations of pairing and harmony. Yet in some Japanese autumn-and-winter seasonal programs they appear in winter scenes. The website therefore should not assign season from “mandarin duck” alone, but read it together with snow, ice, bamboo, withered reeds, and other environmental clues.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 64,
@@ -1863,7 +2162,14 @@
       "blurb_en": "A compact nature study of birds, water, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "064-mandarin-ducks-and-falling-leaves-on-ice.jpg"
+      "web_image_filename": "064-mandarin-ducks-and-falling-leaves-on-ice.jpg",
+      "seasonal_note_zh": "“冰上鸳鸯与落叶”处在一个很适合表现季节交替的时间点：落叶暗示深秋，而结冰的水面把画面推向初冬。与其硬分成单一季节，更适合把它理解为“晚秋至初冬”的过渡景象。",
+      "seasonal_note_en": "Mandarin ducks on ice with fallen leaves evoke a seasonal threshold: fallen leaves suggest late autumn, while ice pushes the scene toward early winter. Rather than forcing a single-season reading, it is better understood as a late-autumn-to-early-winter transition.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 65,
@@ -1892,7 +2198,14 @@
       "blurb_en": "A compact nature study of birds, water, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 0.892,
       "match_status": "matched",
-      "web_image_filename": "065-mandarin-ducks-and-falling-leaves-on-ice-key-block-impression.jpg"
+      "web_image_filename": "065-mandarin-ducks-and-falling-leaves-on-ice-key-block-impression.jpg",
+      "seasonal_note_zh": "“冰上鸳鸯与落叶”处在一个很适合表现季节交替的时间点：落叶暗示深秋，而结冰的水面把画面推向初冬。与其硬分成单一季节，更适合把它理解为“晚秋至初冬”的过渡景象。",
+      "seasonal_note_en": "Mandarin ducks on ice with fallen leaves evoke a seasonal threshold: fallen leaves suggest late autumn, while ice pushes the scene toward early winter. Rather than forcing a single-season reading, it is better understood as a late-autumn-to-early-winter transition.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 66,
@@ -1923,7 +2236,14 @@
       "blurb_en": "A compact nature study of birds, snow, with a still, spare mood and a strong sense of winter.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "066-mandarin-ducks-and-snow-covered-bamboo.jpg"
+      "web_image_filename": "066-mandarin-ducks-and-snow-covered-bamboo.jpg",
+      "seasonal_note_zh": "这类作品的冬季感主要来自“雪”，而不只是鸳鸯本身。日本四季图像中，雪是明确的冬季标志；鸳鸯在部分秋冬花鸟图中也会出现在冬景一侧，因此两者结合时冬意非常清楚。",
+      "seasonal_note_en": "The winter reading here comes primarily from snow, not from the mandarin duck alone. Snow is an explicit winter marker in Japanese four-season imagery, and mandarin ducks also appear on the winter side of some autumn-and-winter bird-and-flower programs.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 67,
@@ -1950,7 +2270,11 @@
       "blurb_en": "A compact nature study of flowers, with a lush mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "067-morning-glories.jpg"
+      "web_image_filename": "067-morning-glories.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 68,
@@ -1980,7 +2304,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "068-morning-glories-and-finch.jpg"
+      "web_image_filename": "068-morning-glories-and-finch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 69,
@@ -2010,7 +2338,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "069-oriole-and-clematis.jpg"
+      "web_image_filename": "069-oriole-and-clematis.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 70,
@@ -2038,7 +2370,11 @@
       "blurb_en": "A compact nature study of birds, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "070-oriole-on-aronia-branch.jpg"
+      "web_image_filename": "070-oriole-on-aronia-branch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 71,
@@ -2065,7 +2401,13 @@
       "blurb_en": "A compact nature study of plants, with a wistful mood and a strong sense of autumn.",
       "match_score": 0.577,
       "match_status": "matched_manual",
-      "web_image_filename": "071-oyster-catchers-miyakodori-reeds-and-falling-petals.jpg"
+      "web_image_filename": "071-oyster-catchers-miyakodori-reeds-and-falling-petals.jpg",
+      "seasonal_note_zh": "芦苇本身不足以把一幅作品机械归入“秋”。在日本季节图像中，芦可以跨越较长物候期；真正具有强冬季指向的是“枯芦”等明确状态。网页的季节判断应结合落花、鸟类、天气与植物状态，而不是仅凭标题中出现 Reeds。",
+      "seasonal_note_en": "Reeds alone are not enough to assign a work mechanically to autumn. In Japanese seasonal imagery they can span a broad part of the year; explicitly withered reeds carry a much stronger winter association. Season should therefore be read together with falling petals, birds, weather, and the condition of the plant rather than from the word “reeds” alone.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 72,
@@ -2095,7 +2437,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "072-parrot-and-hydrangeas-sparrow-and-clematis.jpg"
+      "web_image_filename": "072-parrot-and-hydrangeas-sparrow-and-clematis.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 73,
@@ -2123,7 +2469,13 @@
       "blurb_en": "A compact nature study of birds, plants, with a wistful mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "073-peacock-in-a-maple-tree.jpg"
+      "web_image_filename": "073-peacock-in-a-maple-tree.jpg",
+      "seasonal_note_zh": "红叶、枫叶是日本艺术中最容易辨认的秋季物候之一。这里把作品归入秋季，主要依据的是季节性叶色，而不是鸟或动物本身。",
+      "seasonal_note_en": "Maple foliage is one of the most legible autumnal signs in Japanese seasonal imagery. The autumn classification here is driven primarily by the changing leaves rather than by the accompanying bird or animal.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 74,
@@ -2151,7 +2503,11 @@
       "blurb_en": "A compact nature study of flowers, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "074-peonies.jpg"
+      "web_image_filename": "074-peonies.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 75,
@@ -2179,7 +2535,11 @@
       "blurb_en": "A compact nature study of flowers, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "075-peonies-2.jpg"
+      "web_image_filename": "075-peonies-2.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 76,
@@ -2208,7 +2568,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "076-peony-and-bird.jpg"
+      "web_image_filename": "076-peony-and-bird.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 77,
@@ -2235,7 +2599,13 @@
       "blurb_en": "A compact nature study of birds, with a wistful mood and a strong sense of autumn.",
       "match_score": 0.427,
       "match_status": "matched_manual",
-      "web_image_filename": "077-persimmons-and-japanese-white-eye.jpg"
+      "web_image_filename": "077-persimmons-and-japanese-white-eye.jpg",
+      "seasonal_note_zh": "菊与柿在日本传统艺术中常承担秋季、乃至秋末向冬季过渡的时间提示。大都会关于日本季节图像的研究特别把菊与枝叶渐落的柿树列为秋冬题材的典型季节线索。",
+      "seasonal_note_en": "Chrysanthemums and persimmons often serve as markers of autumn—and sometimes the transition from late autumn toward winter—in Japanese art. The Met specifically identifies chrysanthemums and persimmons on increasingly bare trees as characteristic autumnal and winter seasonal references.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 78,
@@ -2265,7 +2635,13 @@
       "blurb_en": "A compact nature study of animals, plants, with a vivid, observant mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "078-pet-monkey-and-maple-leaves.jpg"
+      "web_image_filename": "078-pet-monkey-and-maple-leaves.jpg",
+      "seasonal_note_zh": "红叶、枫叶是日本艺术中最容易辨认的秋季物候之一。这里把作品归入秋季，主要依据的是季节性叶色，而不是鸟或动物本身。",
+      "seasonal_note_en": "Maple foliage is one of the most legible autumnal signs in Japanese seasonal imagery. The autumn classification here is driven primarily by the changing leaves rather than by the accompanying bird or animal.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 79,
@@ -2296,7 +2672,13 @@
       "blurb_en": "A compact nature study of birds, snow, with a still, spare mood and a strong sense of winter.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "079-pheasant-on-a-snow-covered-pine-tree.jpg"
+      "web_image_filename": "079-pheasant-on-a-snow-covered-pine-tree.jpg",
+      "seasonal_note_zh": "这里的冬季判断首先来自画面中明确的积雪。日本四季图像长期以雪和萧疏景物提示冬季；植物或鸟类在这里是对冬景的补充，而不是季节判定的唯一依据。",
+      "seasonal_note_en": "The winter reading here is anchored first of all by visible snow. Japanese four-season imagery has long used snow and spare landscapes as clear signs of winter; the plant or bird supplements that setting rather than determining the season by itself.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 80,
@@ -2324,7 +2706,11 @@
       "blurb_en": "A compact nature study of flowers, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "080-pinks-and-fujibakama.jpg"
+      "web_image_filename": "080-pinks-and-fujibakama.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 81,
@@ -2352,7 +2738,11 @@
       "blurb_en": "A compact nature study of flowers, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "081-pinks-and-snails.jpg"
+      "web_image_filename": "081-pinks-and-snails.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 82,
@@ -2382,7 +2772,14 @@
       "blurb_en": "A compact nature study of birds, moon, with a quiet, contemplative mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "082-plovers-waves-and-full-moon.jpg"
+      "web_image_filename": "082-plovers-waves-and-full-moon.jpg",
+      "seasonal_note_zh": "满月并不自动等于“秋”。日本艺术中“赏月”与秋天关系极深，但若画面只有月亮而缺少雁、秋草等辅助季语，就不宜仅凭“Full Moon”强行判为秋季。网页可把“月”作为独立主题，并在季节分类上保持谨慎。",
+      "seasonal_note_en": "A full moon does not automatically mean autumn. Moon-viewing has deep autumnal associations in Japanese culture, but when geese, autumn grasses, or other seasonal cues are absent, “full moon” alone should not force an autumn classification. It is safer to treat Moon as an independent theme and keep the seasonal label cautious.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/36742",
+        "https://www.metmuseum.org/art/collection/search/48923"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 83,
@@ -2412,7 +2809,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "083-quail-and-poppies.jpg"
+      "web_image_filename": "083-quail-and-poppies.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 84,
@@ -2442,7 +2843,14 @@
       "blurb_en": "A compact nature study of animals, moon, with a quiet, contemplative mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "084-rabbits-under-full-moon.jpg"
+      "web_image_filename": "084-rabbits-under-full-moon.jpg",
+      "seasonal_note_zh": "满月并不自动等于“秋”。日本艺术中“赏月”与秋天关系极深，但若画面只有月亮而缺少雁、秋草等辅助季语，就不宜仅凭“Full Moon”强行判为秋季。网页可把“月”作为独立主题，并在季节分类上保持谨慎。",
+      "seasonal_note_en": "A full moon does not automatically mean autumn. Moon-viewing has deep autumnal associations in Japanese culture, but when geese, autumn grasses, or other seasonal cues are absent, “full moon” alone should not force an autumn classification. It is safer to treat Moon as an independent theme and keep the seasonal label cautious.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/36742",
+        "https://www.metmuseum.org/art/collection/search/48923"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 85,
@@ -2472,7 +2880,14 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 0.722,
       "match_status": "matched",
-      "web_image_filename": "085-red-cheeked-bird-and-red-plum-blossoms.jpg"
+      "web_image_filename": "085-red-cheeked-bird-and-red-plum-blossoms.jpg",
+      "seasonal_note_zh": "梅花是日本艺术中重要的早春信号之一；它常在寒意尚存时开放，因此“梅”所指向的并不是完全摆脱冬天后的暖春，而更接近冬末至初春的季节交界。",
+      "seasonal_note_en": "Plum blossom is a major early-spring signal in Japanese art. Because it flowers while the cold still lingers, it often evokes the threshold from late winter into early spring rather than a fully established warm spring.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+        "https://www.metmuseum.org/art/collection/search/77182"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 86,
@@ -2502,7 +2917,13 @@
       "blurb_en": "A compact nature study of birds, snow, with a still, spare mood and a strong sense of winter.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "086-rooster-on-a-snowy-hillside.jpg"
+      "web_image_filename": "086-rooster-on-a-snowy-hillside.jpg",
+      "seasonal_note_zh": "这里的冬季判断首先来自画面中明确的积雪。日本四季图像长期以雪和萧疏景物提示冬季；植物或鸟类在这里是对冬景的补充，而不是季节判定的唯一依据。",
+      "seasonal_note_en": "The winter reading here is anchored first of all by visible snow. Japanese four-season imagery has long used snow and spare landscapes as clear signs of winter; the plant or bird supplements that setting rather than determining the season by itself.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 87,
@@ -2531,7 +2952,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "087-small-horned-owl-in-a-pine-tree.jpg"
+      "web_image_filename": "087-small-horned-owl-in-a-pine-tree.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 88,
@@ -2560,7 +2985,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "088-sparrow-and-bamboo.jpg"
+      "web_image_filename": "088-sparrow-and-bamboo.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 89,
@@ -2589,7 +3018,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "089-sparrow-and-bamboo-2.jpg"
+      "web_image_filename": "089-sparrow-and-bamboo-2.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 90,
@@ -2619,7 +3052,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "090-sparrows-and-camellia.jpg"
+      "web_image_filename": "090-sparrows-and-camellia.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 91,
@@ -2651,7 +3088,14 @@
       "blurb_en": "A compact nature study of birds, flowers, with a still, spare mood and a strong sense of spring.",
       "match_score": 0.787,
       "match_status": "matched",
-      "web_image_filename": "091-sparrows-and-camellia-in-snow.jpg"
+      "web_image_filename": "091-sparrows-and-camellia-in-snow.jpg",
+      "seasonal_note_zh": "“雪中山茶”在日本花鸟画中并不矛盾。山茶类花木常被用于寒季图景；大都会艺术博物馆亦收藏广重《雪覆山茶与麻雀》，并在其他秋冬花鸟屏风中将山茶类列入冬季意象。这里的“花开于雪中”尤其适合被理解为冬末、向春天过渡的物候瞬间。",
+      "seasonal_note_en": "Snow and camellia are not contradictory in Japanese bird-and-flower imagery. Camellias appear in cold-season imagery, and The Met holds Hiroshige’s *Sparrow and Snow-covered Camellia*. In seasonal programs, camellia can function as a winter motif. The combination is especially evocative of late winter and the threshold of spring.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/56949",
+        "https://www.metmuseum.org/art/collection/search/45729"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 92,
@@ -2681,7 +3125,13 @@
       "blurb_en": "A compact nature study of birds, snow, with a still, spare mood and a strong sense of winter.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "092-sparrows-and-snow-covered-nandina.jpg"
+      "web_image_filename": "092-sparrows-and-snow-covered-nandina.jpg",
+      "seasonal_note_zh": "这里的冬季判断首先来自画面中明确的积雪。日本四季图像长期以雪和萧疏景物提示冬季；植物或鸟类在这里是对冬景的补充，而不是季节判定的唯一依据。",
+      "seasonal_note_en": "The winter reading here is anchored first of all by visible snow. Japanese four-season imagery has long used snow and spare landscapes as clear signs of winter; the plant or bird supplements that setting rather than determining the season by itself.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 93,
@@ -2711,7 +3161,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "093-swallow-and-iris.jpg"
+      "web_image_filename": "093-swallow-and-iris.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 94,
@@ -2741,7 +3195,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "094-swallows-and-iris.jpg"
+      "web_image_filename": "094-swallows-and-iris.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 95,
@@ -2770,7 +3228,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "095-swallow-and-poppy.jpg"
+      "web_image_filename": "095-swallow-and-poppy.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 96,
@@ -2801,7 +3263,11 @@
       "blurb_en": "A compact nature study of animals, rain, with a atmospheric, transient mood and a strong sense of seasonal time.",
       "match_score": 0.794,
       "match_status": "matched",
-      "web_image_filename": "096-tiger-in-the-bamboo-grove-in-the-rain.jpg"
+      "web_image_filename": "096-tiger-in-the-bamboo-grove-in-the-rain.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 97,
@@ -2831,7 +3297,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "097-two-birds-and-hydrangea.jpg"
+      "web_image_filename": "097-two-birds-and-hydrangea.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 98,
@@ -2861,7 +3331,14 @@
       "blurb_en": "A compact nature study of animals, moon, with a quiet, contemplative mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "098-two-horses-beneath-the-moon.jpg"
+      "web_image_filename": "098-two-horses-beneath-the-moon.jpg",
+      "seasonal_note_zh": "满月并不自动等于“秋”。日本艺术中“赏月”与秋天关系极深，但若画面只有月亮而缺少雁、秋草等辅助季语，就不宜仅凭“Full Moon”强行判为秋季。网页可把“月”作为独立主题，并在季节分类上保持谨慎。",
+      "seasonal_note_en": "A full moon does not automatically mean autumn. Moon-viewing has deep autumnal associations in Japanese culture, but when geese, autumn grasses, or other seasonal cues are absent, “full moon” alone should not force an autumn classification. It is safer to treat Moon as an independent theme and keep the seasonal label cautious.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/36742",
+        "https://www.metmuseum.org/art/collection/search/48923"
+      ],
+      "seasonal_note_confidence": "medium"
     },
     {
       "id": 99,
@@ -2891,7 +3368,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 0.612,
       "match_status": "matched",
-      "web_image_filename": "099-two-swallows-and-irises.jpg"
+      "web_image_filename": "099-two-swallows-and-irises.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 100,
@@ -2919,7 +3400,11 @@
       "blurb_en": "A compact nature study of birds, water, with a wistful mood and a strong sense of autumn.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "100-wading-crane-and-trailing-bush-clover.jpg"
+      "web_image_filename": "100-wading-crane-and-trailing-bush-clover.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 101,
@@ -2948,7 +3433,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "101-wagtail-and-roses.jpg"
+      "web_image_filename": "101-wagtail-and-roses.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 102,
@@ -2978,7 +3467,16 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "102-warbler-on-plum-branch.jpg"
+      "web_image_filename": "102-warbler-on-plum-branch.jpg",
+      "seasonal_note_zh": "“梅与莺（梅に鶯）”是非常典型的迎春组合。日本诗歌与视觉艺术中，莺的初啼被视为春天到来的信号；与梅花并置后，这种“岁首、初春、新生”的意味尤其鲜明。甚至传统作品中也会让莺停在残雪覆枝的梅树上——春意可以在冬景尚未完全消失时到来。",
+      "seasonal_note_en": "The pairing of plum and bush warbler (*ume ni uguisu*) is a classic harbinger of spring. In Japanese poetry and visual art, the warbler’s first song announces the coming of spring, and its pairing with plum intensifies associations with the New Year, early spring, and renewal. Traditional imagery can even place the bird on snow-covered plum branches: spring may arrive before winter has fully vanished.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/56942",
+        "https://www.metmuseum.org/art/collection/search/77182",
+        "https://www.metmuseum.org/art/collection/search/44875",
+        "https://www.metmuseum.org/art/collection/search/78139"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 103,
@@ -3008,7 +3506,16 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "103-warbler-on-plum-branch-2.jpg"
+      "web_image_filename": "103-warbler-on-plum-branch-2.jpg",
+      "seasonal_note_zh": "“梅与莺（梅に鶯）”是非常典型的迎春组合。日本诗歌与视觉艺术中，莺的初啼被视为春天到来的信号；与梅花并置后，这种“岁首、初春、新生”的意味尤其鲜明。甚至传统作品中也会让莺停在残雪覆枝的梅树上——春意可以在冬景尚未完全消失时到来。",
+      "seasonal_note_en": "The pairing of plum and bush warbler (*ume ni uguisu*) is a classic harbinger of spring. In Japanese poetry and visual art, the warbler’s first song announces the coming of spring, and its pairing with plum intensifies associations with the New Year, early spring, and renewal. Traditional imagery can even place the bird on snow-covered plum branches: spring may arrive before winter has fully vanished.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/56942",
+        "https://www.metmuseum.org/art/collection/search/77182",
+        "https://www.metmuseum.org/art/collection/search/44875",
+        "https://www.metmuseum.org/art/collection/search/78139"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 104,
@@ -3038,7 +3545,16 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "104-warbler-on-plum-branch-3.jpg"
+      "web_image_filename": "104-warbler-on-plum-branch-3.jpg",
+      "seasonal_note_zh": "“梅与莺（梅に鶯）”是非常典型的迎春组合。日本诗歌与视觉艺术中，莺的初啼被视为春天到来的信号；与梅花并置后，这种“岁首、初春、新生”的意味尤其鲜明。甚至传统作品中也会让莺停在残雪覆枝的梅树上——春意可以在冬景尚未完全消失时到来。",
+      "seasonal_note_en": "The pairing of plum and bush warbler (*ume ni uguisu*) is a classic harbinger of spring. In Japanese poetry and visual art, the warbler’s first song announces the coming of spring, and its pairing with plum intensifies associations with the New Year, early spring, and renewal. Traditional imagery can even place the bird on snow-covered plum branches: spring may arrive before winter has fully vanished.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/56942",
+        "https://www.metmuseum.org/art/collection/search/77182",
+        "https://www.metmuseum.org/art/collection/search/44875",
+        "https://www.metmuseum.org/art/collection/search/78139"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 105,
@@ -3068,7 +3584,16 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "105-warbler-on-red-plum-branch.jpg"
+      "web_image_filename": "105-warbler-on-red-plum-branch.jpg",
+      "seasonal_note_zh": "“梅与莺（梅に鶯）”是非常典型的迎春组合。日本诗歌与视觉艺术中，莺的初啼被视为春天到来的信号；与梅花并置后，这种“岁首、初春、新生”的意味尤其鲜明。甚至传统作品中也会让莺停在残雪覆枝的梅树上——春意可以在冬景尚未完全消失时到来。",
+      "seasonal_note_en": "The pairing of plum and bush warbler (*ume ni uguisu*) is a classic harbinger of spring. In Japanese poetry and visual art, the warbler’s first song announces the coming of spring, and its pairing with plum intensifies associations with the New Year, early spring, and renewal. Traditional imagery can even place the bird on snow-covered plum branches: spring may arrive before winter has fully vanished.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/56942",
+        "https://www.metmuseum.org/art/collection/search/77182",
+        "https://www.metmuseum.org/art/collection/search/44875",
+        "https://www.metmuseum.org/art/collection/search/78139"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 106,
@@ -3098,7 +3623,16 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "106-warbler-on-red-plum-branch-2.jpg"
+      "web_image_filename": "106-warbler-on-red-plum-branch-2.jpg",
+      "seasonal_note_zh": "“梅与莺（梅に鶯）”是非常典型的迎春组合。日本诗歌与视觉艺术中，莺的初啼被视为春天到来的信号；与梅花并置后，这种“岁首、初春、新生”的意味尤其鲜明。甚至传统作品中也会让莺停在残雪覆枝的梅树上——春意可以在冬景尚未完全消失时到来。",
+      "seasonal_note_en": "The pairing of plum and bush warbler (*ume ni uguisu*) is a classic harbinger of spring. In Japanese poetry and visual art, the warbler’s first song announces the coming of spring, and its pairing with plum intensifies associations with the New Year, early spring, and renewal. Traditional imagery can even place the bird on snow-covered plum branches: spring may arrive before winter has fully vanished.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/art/collection/search/56942",
+        "https://www.metmuseum.org/art/collection/search/77182",
+        "https://www.metmuseum.org/art/collection/search/44875",
+        "https://www.metmuseum.org/art/collection/search/78139"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 107,
@@ -3127,7 +3661,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "107-white-heron-and-rushes.jpg"
+      "web_image_filename": "107-white-heron-and-rushes.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 108,
@@ -3155,7 +3693,11 @@
       "blurb_en": "A compact nature study of birds, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 0.669,
       "match_status": "matched_manual",
-      "web_image_filename": "108-white-cheeked-bird-on-aronia-branch.jpg"
+      "web_image_filename": "108-white-cheeked-bird-on-aronia-branch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 109,
@@ -3184,7 +3726,11 @@
       "blurb_en": "A compact nature study of birds, plants, with a poetic, quiet mood and a strong sense of seasonal time.",
       "match_score": 0.653,
       "match_status": "matched_manual",
-      "web_image_filename": "109-white-headed-bird-clinging-to-ivy-vine.jpg"
+      "web_image_filename": "109-white-headed-bird-clinging-to-ivy-vine.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 110,
@@ -3212,7 +3758,13 @@
       "blurb_en": "A compact nature study of birds, plants, with a wistful mood and a strong sense of autumn.",
       "match_score": 0.668,
       "match_status": "matched_manual",
-      "web_image_filename": "110-white-headed-bird-on-maple-branch.jpg"
+      "web_image_filename": "110-white-headed-bird-on-maple-branch.jpg",
+      "seasonal_note_zh": "红叶、枫叶是日本艺术中最容易辨认的秋季物候之一。这里把作品归入秋季，主要依据的是季节性叶色，而不是鸟或动物本身。",
+      "seasonal_note_en": "Maple foliage is one of the most legible autumnal signs in Japanese seasonal imagery. The autumn classification here is driven primarily by the changing leaves rather than by the accompanying bird or animal.",
+      "seasonal_note_source_basis": [
+        "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art"
+      ],
+      "seasonal_note_confidence": "high"
     },
     {
       "id": 111,
@@ -3242,7 +3794,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "111-wild-cherry-and-swallows.jpg"
+      "web_image_filename": "111-wild-cherry-and-swallows.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 112,
@@ -3272,7 +3828,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of summer.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "112-wild-wisteria-and-bunting.jpg"
+      "web_image_filename": "112-wild-wisteria-and-bunting.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 113,
@@ -3303,7 +3863,11 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "113-yamabuki-and-bullfinch.jpg"
+      "web_image_filename": "113-yamabuki-and-bullfinch.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     },
     {
       "id": 114,
@@ -3333,11 +3897,29 @@
       "blurb_en": "A compact nature study of birds, flowers, with a lyrical, delicate mood and a strong sense of spring.",
       "match_score": 1.0,
       "match_status": "matched",
-      "web_image_filename": "114-magnolia-and-java-sparrow.jpg"
+      "web_image_filename": "114-magnolia-and-java-sparrow.jpg",
+      "seasonal_note_zh": "",
+      "seasonal_note_en": "",
+      "seasonal_note_source_basis": [],
+      "seasonal_note_confidence": ""
     }
   ],
   "editorial_note_zh": "season、subjects、mood、primary_section 与短赏析均为网页策展用途的编辑性分类，不属于原始网页元数据。",
   "editorial_note_en": "Season, subjects, mood, primary_section and short blurbs are editorial classifications created for web curation and are not source metadata.",
   "image_matching_note_zh": "图片文件名已与114条作品记录完成一一匹配。重复题名按源文件的无后缀、B、C、D、E顺序对应名录中的重复记录；低分项已按文件名语义人工确认。",
-  "image_matching_note_en": "All 114 image files have been matched one-to-one with catalog records. Duplicate titles follow the source filename variant order (no suffix, B, C, D, E); low-score matches were manually confirmed by filename semantics."
+  "image_matching_note_en": "All 114 image files have been matched one-to-one with catalog records. Duplicate titles follow the source filename variant order (no suffix, B, C, D, E); low-score matches were manually confirmed by filename semantics.",
+  "seasonal_notes_method_zh": "季节注仅添加于容易产生现代季节误读、具有跨季节物候或传统日本季节母题的作品。原 season 字段未在本次修改中重写；注释用于补充文化语境，并明确区分史料支持与策展解释。",
+  "seasonal_notes_sources": {
+    "met_seasonal": "https://www.metmuseum.org/ja/essays/seasonal-imagery-in-japanese-art",
+    "met_camellia_snow": "https://www.metmuseum.org/art/collection/search/56949",
+    "met_autumn_winter_birds_flowers": "https://www.metmuseum.org/art/collection/search/45729",
+    "met_geese_full_moon": "https://www.metmuseum.org/art/collection/search/36742",
+    "met_moon_autumn_grasses": "https://www.metmuseum.org/art/collection/search/48923",
+    "met_warbler_plum": "https://www.metmuseum.org/art/collection/search/56942",
+    "met_warbler_plum_gyokuran": "https://www.metmuseum.org/art/collection/search/77182",
+    "met_warbler_plum_box": "https://www.metmuseum.org/art/collection/search/44875",
+    "met_warbler_plum_hoitsu": "https://www.metmuseum.org/art/collection/search/78139",
+    "met_four_seasons": "https://www.metmuseum.org/art/collection/search/53009"
+  },
+  "seasonal_notes_count": 39
 }
