@@ -26,6 +26,8 @@ type AmbientEngine = {
   fauna: GainNode;
   tone: GainNode;
   sources: AudioScheduledSourceNode[];
+  season: string;
+  eventTimer: ReturnType<typeof setTimeout> | null;
 };
 const works = catalog.works;
 const themes = ['All', 'Birds', 'Flowers', 'Moon', 'Rain', 'Snow', 'Animals'];
@@ -61,10 +63,10 @@ const seasons = [
   },
 ];
 const soundProfiles: Record<string, [number, number, number, number]> = {
-  Spring: [0.54, 0.08, 0.16, 0.045],
-  Summer: [0.3, 0.4, 0.12, 0.035],
-  Autumn: [0.52, 0.04, 0.075, 0.055],
-  Winter: [0.12, 0.015, 0, 0.018],
+  Spring: [0.3, 0.02, 0.11, 0.012],
+  Summer: [0.18, 0.22, 0.015, 0.022],
+  Autumn: [0.34, 0.018, 0.07, 0.02],
+  Winter: [0.055, 0.004, 0, 0.008],
 };
 
 function createAmbientEngine(): AmbientEngine {
@@ -73,25 +75,41 @@ function createAmbientEngine(): AmbientEngine {
   master.gain.value = 0;
   master.connect(context.destination);
 
-  const makeNoise = (filterType: BiquadFilterType, frequency: number) => {
-    const seconds = 12;
+  const sources: AudioScheduledSourceNode[] = [];
+  const makeNoise = (
+    seconds: number,
+    memory: number,
+    filterType: BiquadFilterType,
+    frequency: number,
+    modulationRate: number,
+  ) => {
     const buffer = context.createBuffer(1, context.sampleRate * seconds, context.sampleRate);
     const data = buffer.getChannelData(0);
-    let brown = 0;
+    let shaped = 0;
     for (let i = 0; i < data.length; i += 1) {
-      brown = (brown + 0.018 * (Math.random() * 2 - 1)) / 1.018;
-      data[i] = brown * 3.2;
+      shaped = memory * shaped + (1 - memory) * (Math.random() * 2 - 1);
+      data[i] = shaped * 0.72;
     }
     data[data.length - 1] = data[0];
     const source = context.createBufferSource();
     source.buffer = buffer;
     source.loop = true;
+    source.playbackRate.value = 0.985 + Math.random() * 0.03;
     const filter = context.createBiquadFilter();
     filter.type = filterType;
     filter.frequency.value = frequency;
-    source.connect(filter);
+    const swell = context.createGain();
+    swell.gain.value = 0.72;
+    const modulation = context.createOscillator();
+    modulation.frequency.value = modulationRate;
+    const modulationDepth = context.createGain();
+    modulationDepth.gain.value = 0.16;
+    modulation.connect(modulationDepth).connect(swell.gain);
+    source.connect(filter).connect(swell);
     source.start();
-    return { source, filter };
+    modulation.start();
+    sources.push(source, modulation);
+    return { output: swell, filter };
   };
 
   const wind = context.createGain();
@@ -103,52 +121,86 @@ function createAmbientEngine(): AmbientEngine {
     gain.connect(master);
   });
 
-  const windNoise = makeNoise('lowpass', 720);
-  windNoise.filter.connect(wind);
-  const waterNoise = makeNoise('bandpass', 1850);
+  // Prime-length beds and slightly different playback rates keep their shared pattern from lining up.
+  const windNoise = makeNoise(43, 0.975, 'lowpass', 560, 0.027);
+  windNoise.output.connect(wind);
+  const waterNoise = makeNoise(59, 0.68, 'bandpass', 1420, 0.043);
   waterNoise.filter.Q.value = 0.7;
-  waterNoise.filter.connect(water);
-
-  const faunaOscillator = context.createOscillator();
-  faunaOscillator.type = 'sine';
-  faunaOscillator.frequency.value = 2380;
-  const faunaCarrier = context.createGain();
-  faunaCarrier.gain.value = 0.012;
-  const faunaPulse = context.createOscillator();
-  faunaPulse.frequency.value = 0.12;
-  const faunaDepth = context.createGain();
-  faunaDepth.gain.value = 0.009;
-  faunaPulse.connect(faunaDepth).connect(faunaCarrier.gain);
-  faunaOscillator.connect(faunaCarrier).connect(fauna);
-  faunaOscillator.start();
-  faunaPulse.start();
+  waterNoise.output.connect(water);
 
   const airTone = context.createOscillator();
   airTone.type = 'sine';
-  airTone.frequency.value = 146.83;
+  airTone.frequency.value = 92;
   const toneFilter = context.createBiquadFilter();
   toneFilter.type = 'lowpass';
-  toneFilter.frequency.value = 310;
-  airTone.connect(toneFilter).connect(tone);
+  toneFilter.frequency.value = 190;
+  const toneSwell = context.createGain();
+  toneSwell.gain.value = 0.38;
+  const toneModulation = context.createOscillator();
+  toneModulation.frequency.value = 0.019;
+  const toneDepth = context.createGain();
+  toneDepth.gain.value = 0.25;
+  toneModulation.connect(toneDepth).connect(toneSwell.gain);
+  airTone.connect(toneFilter).connect(toneSwell).connect(tone);
   airTone.start();
+  toneModulation.start();
+  sources.push(airTone, toneModulation);
 
-  return {
+  const engine: AmbientEngine = {
     context,
     master,
     wind,
     water,
     fauna,
     tone,
-    sources: [windNoise.source, waterNoise.source, faunaOscillator, faunaPulse, airTone],
+    sources,
+    season: 'Spring',
+    eventTimer: null,
   };
+  scheduleDistantTone(engine);
+  return engine;
+}
+
+function scheduleDistantTone(engine: AmbientEngine) {
+  const delay = 18000 + Math.random() * 29000;
+  engine.eventTimer = setTimeout(() => {
+    if (engine.context.state === 'running') {
+      const chance = engine.season === 'Spring' ? 0.48 : engine.season === 'Autumn' ? 0.22 : 0.04;
+      if (Math.random() < chance) {
+        const now = engine.context.currentTime;
+        const oscillator = engine.context.createOscillator();
+        const filter = engine.context.createBiquadFilter();
+        const envelope = engine.context.createGain();
+        const autumn = engine.season === 'Autumn';
+        const frequency = autumn ? 380 + Math.random() * 190 : 940 + Math.random() * 420;
+        oscillator.type = 'sine';
+        oscillator.frequency.setValueAtTime(frequency, now);
+        oscillator.frequency.linearRampToValueAtTime(frequency * (0.97 + Math.random() * 0.07), now + 1.6);
+        filter.type = 'bandpass';
+        filter.frequency.value = frequency;
+        filter.Q.value = 0.8;
+        envelope.gain.setValueAtTime(0, now);
+        envelope.gain.linearRampToValueAtTime(0.055, now + 0.65);
+        envelope.gain.linearRampToValueAtTime(0, now + 2.1);
+        oscillator.connect(filter).connect(envelope).connect(engine.fauna);
+        oscillator.start(now);
+        oscillator.stop(now + 2.2);
+      }
+    }
+    scheduleDistantTone(engine);
+  }, delay);
+}
+
+function holdGain(parameter: AudioParam, time: number) {
+  parameter.cancelAndHoldAtTime(time);
 }
 
 function setAmbientSeason(engine: AmbientEngine, season: string, immediate = false) {
   const profile = soundProfiles[season] ?? soundProfiles.Spring;
   const now = engine.context.currentTime;
+  engine.season = season;
   [engine.wind, engine.water, engine.fauna, engine.tone].forEach((channel, index) => {
-    channel.gain.cancelScheduledValues(now);
-    channel.gain.setValueAtTime(channel.gain.value, now);
+    holdGain(channel.gain, now);
     if (immediate) channel.gain.setValueAtTime(profile[index], now);
     else channel.gain.linearRampToValueAtTime(profile[index], now + 3.2);
   });
@@ -275,6 +327,7 @@ export default function Exhibition() {
     return () => {
       clearTimeout(preferenceTimer);
       if (soundSuspendTimer.current) clearTimeout(soundSuspendTimer.current);
+      if (ambientEngine.current?.eventTimer) clearTimeout(ambientEngine.current.eventTimer);
       void ambientEngine.current?.context.close();
     };
   }, []);
@@ -287,8 +340,7 @@ export default function Exhibition() {
       const engine = ambientEngine.current;
       if (engine) {
         const now = engine.context.currentTime;
-        engine.master.gain.cancelScheduledValues(now);
-        engine.master.gain.setValueAtTime(engine.master.gain.value, now);
+        holdGain(engine.master.gain, now);
         engine.master.gain.linearRampToValueAtTime(0, now + 0.7);
         soundSuspendTimer.current = setTimeout(() => engine.context.suspend(), 760);
       }
@@ -302,9 +354,8 @@ export default function Exhibition() {
     setAmbientSeason(engine, journeySeason, true);
     await engine.context.resume();
     const now = engine.context.currentTime;
-    engine.master.gain.cancelScheduledValues(now);
-    engine.master.gain.setValueAtTime(engine.master.gain.value, now);
-    engine.master.gain.linearRampToValueAtTime(0.018, now + 1.4);
+    holdGain(engine.master.gain, now);
+    engine.master.gain.linearRampToValueAtTime(0.012, now + 1.4);
     sessionStorage.setItem('hiroshige-ambient-sound', 'on');
     setSoundMode('on');
   };
