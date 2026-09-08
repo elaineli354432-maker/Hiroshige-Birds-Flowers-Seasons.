@@ -63,10 +63,10 @@ const seasons = [
   },
 ];
 const soundProfiles: Record<string, [number, number, number, number]> = {
-  Spring: [0.3, 0.02, 0.11, 0.012],
-  Summer: [0.18, 0.22, 0.015, 0.022],
-  Autumn: [0.34, 0.018, 0.07, 0.02],
-  Winter: [0.055, 0.004, 0, 0.008],
+  Spring: [0.21, 0.014, 0.055, 0.008],
+  Summer: [0.14, 0.15, 0.008, 0.014],
+  Autumn: [0.24, 0.012, 0.035, 0.012],
+  Winter: [0.032, 0.002, 0, 0.004],
 };
 
 function createAmbientEngine(): AmbientEngine {
@@ -99,11 +99,11 @@ function createAmbientEngine(): AmbientEngine {
     filter.type = filterType;
     filter.frequency.value = frequency;
     const swell = context.createGain();
-    swell.gain.value = 0.72;
+    swell.gain.value = 0.58;
     const modulation = context.createOscillator();
     modulation.frequency.value = modulationRate;
     const modulationDepth = context.createGain();
-    modulationDepth.gain.value = 0.16;
+    modulationDepth.gain.value = 0.12;
     modulation.connect(modulationDepth).connect(swell.gain);
     source.connect(filter).connect(swell);
     source.start();
@@ -162,10 +162,11 @@ function createAmbientEngine(): AmbientEngine {
 }
 
 function scheduleDistantTone(engine: AmbientEngine) {
-  const delay = 18000 + Math.random() * 29000;
+  // Long, irregular gaps keep the small tonal events from becoming a loop.
+  const delay = 26000 + Math.random() * 62000;
   engine.eventTimer = setTimeout(() => {
     if (engine.context.state === 'running') {
-      const chance = engine.season === 'Spring' ? 0.48 : engine.season === 'Autumn' ? 0.22 : 0.04;
+      const chance = engine.season === 'Spring' ? 0.24 : engine.season === 'Autumn' ? 0.12 : engine.season === 'Winter' ? 0.035 : 0.06;
       if (Math.random() < chance) {
         const now = engine.context.currentTime;
         const oscillator = engine.context.createOscillator();
@@ -180,8 +181,8 @@ function scheduleDistantTone(engine: AmbientEngine) {
         filter.frequency.value = frequency;
         filter.Q.value = 0.8;
         envelope.gain.setValueAtTime(0, now);
-        envelope.gain.linearRampToValueAtTime(0.055, now + 0.65);
-        envelope.gain.linearRampToValueAtTime(0, now + 2.1);
+        envelope.gain.linearRampToValueAtTime(0.028, now + 0.8);
+        envelope.gain.linearRampToValueAtTime(0, now + 2.7);
         oscillator.connect(filter).connect(envelope).connect(engine.fauna);
         oscillator.start(now);
         oscillator.stop(now + 2.2);
@@ -360,7 +361,7 @@ export default function Exhibition() {
     await engine.context.resume();
     const now = engine.context.currentTime;
     holdGain(engine.master.gain, now);
-    engine.master.gain.linearRampToValueAtTime(0.012, now + 1.4);
+    engine.master.gain.linearRampToValueAtTime(0.009, now + 1.4);
     sessionStorage.setItem('hiroshige-ambient-sound', 'on');
     setSoundMode('on');
   };
