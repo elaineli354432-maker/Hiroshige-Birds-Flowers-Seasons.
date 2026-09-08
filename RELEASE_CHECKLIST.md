@@ -12,10 +12,10 @@
 
 ## Release checks still required
 
-- [ ] Recheck the final built UI at 375, 390, 430, 768 and 1440 px, including long bilingual wallpaper titles.
+- [x] Local Collection responsive review at 375, 390, 430, 768 and 1440 px; 375px artwork detail also checked.
 - [ ] Verify native share on a supported mobile device and clipboard fallback over HTTPS.
 - [ ] Verify direct artwork URL, previous/next, Escape, focus return and browser Back/Forward on the deployed host.
-- [ ] Confirm all eight wallpaper downloads and catalogue download return files, not fallback HTML.
+- [x] Local preview: all eight wallpaper downloads and catalogue return correct file types; repeat on the production host.
 - [ ] Run Lighthouse on the final hosted build; no new Lighthouse result was obtained in this pass.
 - [ ] Approve the final visual audit on the deployed candidate. Prior Phase 3 score is not a substitute for this gate.
 
@@ -39,4 +39,8 @@ No deployment was performed. Release remains conditional on the unchecked host/d
 - PASS: exhibition Share control reports Shared / 已分享 in the available browser. Real-device share target delivery remains unverified.
 - PASS: 390px viewport screenshot (375px content area excluding scrollbar) shows readable Collection and wallpaper layouts with full artwork and no horizontal overflow.
 - PASS: fresh local production browser logs contain no errors or warnings.
-- Other requested widths produced inconsistent viewport override timing; they are not recorded as a new complete visual pass. The remaining visual and deployed-host release gates above still apply.
+- PASS: subsequent isolated viewport checks confirmed 375, 430, 768 and 1440px widths, with matching document/client widths and no horizontal overflow. Collection and wallpaper viewport screenshots preserve the paper palette, serif hierarchy, quiet rules and complete prints.
+- PASS: 375px direct artwork-012 detail shows the complete print, readable bilingual heading, and visible study/close/previous/next controls. Console remains clear.
+- Full-page screenshot stitching produced duplicate bands; visual judgments used actual viewport screenshots instead. No page redesign or further code change was needed.
+- The existing successful production build remains applicable: this follow-up changes release documentation only. Production origin, real-device sharing, Lighthouse and deployed visual approval remain release gates.
+
