@@ -63,10 +63,10 @@ const seasons = [
   },
 ];
 const soundProfiles: Record<string, [number, number, number, number]> = {
-  Spring: [0.21, 0.014, 0.055, 0.008],
-  Summer: [0.14, 0.15, 0.008, 0.014],
-  Autumn: [0.24, 0.012, 0.035, 0.012],
-  Winter: [0.032, 0.002, 0, 0.004],
+  Spring: [0.085, 0.008, 0.07, 0.014],
+  Summer: [0.065, 0.075, 0.012, 0.02],
+  Autumn: [0.11, 0.007, 0.05, 0.018],
+  Winter: [0.014, 0.001, 0, 0.007],
 };
 
 function createAmbientEngine(): AmbientEngine {
