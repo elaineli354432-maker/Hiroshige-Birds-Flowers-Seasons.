@@ -550,7 +550,8 @@ footer {
 .collection-actions .eyebrow {
   margin-bottom: 15px;
 }
-.collection-actions button {
+.collection-actions button,
+.collection-actions a {
   display: block;
   font-size: 13px;
   padding: 12px 0;
@@ -1152,6 +1153,13 @@ footer { display: block; padding-top: 0; }
  .season-chapter { padding-inline:9%; gap:9%; min-height:780px; } .chapter-line { font-size:21px; }
  .chapter-art img { height:510px; } .chapter-summer .chapter-art img { height:550px; } .detail-copy { padding:28px 22px; }
 }
+.detail-placeholders a,
+.detail-placeholders button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
 .seasonal-note {
   border-top: 1px solid var(--line);
   padding: 27px 0 29px;
@@ -1219,4 +1227,49 @@ footer { display: block; padding-top: 0; }
  .detail-copy { overflow:visible; padding:35px 44px; }
  .historical>div,.editorial>div { grid-template-columns:120px 1fr; }
  .study-mode .detail-image-area { height:100%; min-height:0; }
+}
+
+/* Phase 3 collection delivery keeps the exhibition's editorial language. */
+.collection-page { min-height:100vh; }
+.collection-header { height:88px; margin:0 5%; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.collection-header > a:first-child { font-size:25px; }
+.collection-header > a:last-child { font:10px/1.6 Arial,sans-serif; letter-spacing:1.1px; min-height:44px; display:inline-flex; align-items:center; }
+.collection-intro { padding:110px 12% 125px; display:grid; grid-template-columns:1.35fr .65fr; column-gap:10%; align-items:end; }
+.collection-intro .eyebrow { grid-column:1/-1; }
+.collection-intro h1 { font-size:clamp(58px,7vw,108px); line-height:1.02; font-weight:400; letter-spacing:-4px; }
+.collection-intro > p[lang=zh] { grid-column:1; font-size:19px; letter-spacing:2px; margin-top:34px; }
+.collection-intro > p:last-child { grid-column:2; grid-row:2/4; max-width:330px; color:var(--soft); font-size:14px; line-height:1.9; }
+.catalogue-download { border-block:1px solid var(--line); margin:0 8%; padding:80px 4%; display:grid; grid-template-columns:1fr 1fr; gap:10%; align-items:end; }
+.catalogue-download h2,.wallpaper-heading h2 { font-size:clamp(38px,4vw,62px); line-height:1.15; letter-spacing:-2px; font-weight:400; }
+.catalogue-download p[lang=zh],.wallpaper-heading p[lang=zh] { margin-top:22px; color:var(--soft); font-size:15px; line-height:1.9; }
+.download-link { border-bottom:1px solid var(--ink); padding:18px 0; display:flex; justify-content:space-between; gap:20px; font-size:18px; }
+.download-link span { color:var(--soft); font:10px/1.6 Arial,sans-serif; letter-spacing:1px; }
+.wallpaper-section { padding:120px 12% 140px; display:grid; grid-template-columns:.7fr 1.3fr; gap:10%; align-items:start; }
+.wallpaper-heading { position:sticky; top:90px; }
+.wallpaper-list { border-top:1px solid var(--line); }
+.wallpaper-item { padding:54px 0; border-bottom:1px solid var(--line); display:grid; grid-template-columns:160px 1fr; gap:42px; align-items:center; }
+.wallpaper-item img { width:160px; height:285px; object-fit:contain; display:block; }
+.wallpaper-item .eyebrow { margin-bottom:18px; }
+.wallpaper-item h3 { font-size:21px; line-height:1.45; font-weight:400; }
+.wallpaper-item h3 span { display:block; margin-bottom:7px; }
+.wallpaper-links { display:flex; flex-direction:column; align-items:flex-start; gap:10px; margin-top:26px; }
+.wallpaper-links a { min-height:44px; display:inline-flex; align-items:center; font:10px/1.5 Arial,sans-serif; letter-spacing:.8px; border-bottom:1px solid var(--line); }
+.collection-colophon { margin:0 5%; padding:28px 0; border-top:1px solid var(--line); display:flex; justify-content:space-between; font:9px/1.8 Arial,sans-serif; letter-spacing:1px; color:var(--soft); }
+@media (max-width:700px) {
+  .collection-header { height:72px; margin-inline:6%; }
+  .collection-header > a:last-child { font-size:8px; max-width:130px; text-align:right; }
+  .collection-intro { display:block; padding:75px 8% 85px; }
+  .collection-intro h1 { font-size:56px; letter-spacing:-3px; }
+  .collection-intro > p[lang=zh] { font-size:16px; }
+  .collection-intro > p:last-child { margin-top:32px; }
+  .catalogue-download { display:block; margin:0; padding:65px 8%; }
+  .catalogue-download h2,.wallpaper-heading h2 { font-size:38px; }
+  .download-link { margin-top:38px; font-size:15px; }
+  .wallpaper-section { display:block; padding:78px 8% 90px; }
+  .wallpaper-heading { position:static; margin-bottom:55px; }
+  .wallpaper-item { grid-template-columns:105px 1fr; gap:24px; padding:38px 0; }
+  .wallpaper-item img { width:105px; height:190px; }
+  .wallpaper-item h3 { font-size:17px; }
+  .wallpaper-links { margin-top:18px; }
+  .collection-colophon { margin-inline:6%; gap:24px; }
 }

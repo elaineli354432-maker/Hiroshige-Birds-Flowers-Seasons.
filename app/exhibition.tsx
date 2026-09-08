@@ -209,10 +209,12 @@ function Artwork({
   work,
   className = '',
   priority = false,
+  sizes = '(max-width: 700px) 46vw, (max-width: 1100px) 30vw, 20vw',
 }: {
   work: Work;
   className?: string;
   priority?: boolean;
+  sizes?: string;
 }) {
   const size = imageSizes[work.web_image_filename as keyof typeof imageSizes];
   return (
@@ -227,6 +229,7 @@ function Artwork({
       loading={priority ? 'eager' : 'lazy'}
       fetchPriority={priority ? 'high' : undefined}
       decoding="async"
+      sizes={sizes}
     />
   );
 }
@@ -277,7 +280,7 @@ function Hero({ soundMode, onToggleSound }: { soundMode: SoundMode; onToggleSoun
           </a>
         </div>
         <figure className="hero-art" data-reveal="">
-          <Artwork work={heroWork} priority />
+          <Artwork work={heroWork} priority sizes="(max-width: 700px) 72vw, 340px" />
           <figcaption>
             A MOMENT IN SPRING <span lang="zh">{heroWork.title_zh}</span>
           </figcaption>
@@ -302,6 +305,7 @@ export default function Exhibition() {
   const [journeySeason, setJourneySeason] = useState('Spring');
   const [soundMode, setSoundMode] = useState<SoundMode>('off');
   const [filterPending, setFilterPending] = useState(false);
+  const [shareStatus, setShareStatus] = useState('');
   const ambientEngine = useRef<AmbientEngine | null>(null);
   const soundSuspendTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const filterTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -402,6 +406,28 @@ export default function Exhibition() {
   }, []);
   const opener = useRef<HTMLButtonElement | null>(null);
   const imageArea = useRef<HTMLDivElement | null>(null);
+  const openDetail = (id: number, ids: number[], trigger?: HTMLButtonElement) => {
+    if (trigger) opener.current = trigger;
+    setDetailIds(ids);
+    setSelected(id);
+    setZoom(false);
+    setShareStatus('');
+    setDetailOpen(true);
+    history.replaceState(null, '', `#artwork-${String(id).padStart(3, '0')}`);
+  };
+  useEffect(() => {
+    const openFromHash = () => {
+      const match = location.hash.match(/^#artwork-(\d{1,3})$/);
+      const id = match ? Number(match[1]) : 0;
+      if (works.some(work => work.id === id)) openDetail(id, works.map(work => work.id));
+    };
+    const initialTimer = setTimeout(openFromHash, 0);
+    window.addEventListener('hashchange', openFromHash);
+    return () => {
+      clearTimeout(initialTimer);
+      window.removeEventListener('hashchange', openFromHash);
+    };
+  }, []);
   const filtered = useMemo(
     () =>
       works.filter(
@@ -417,11 +443,28 @@ export default function Exhibition() {
   const index = detailWorks.findIndex((w) => w.id === selected);
   const changeWork = (direction: number) => {
     if (!detailWorks.length) return;
-    setSelected(
-      detailWorks[(index + direction + detailWorks.length) % detailWorks.length].id,
-    );
+    const nextId = detailWorks[(index + direction + detailWorks.length) % detailWorks.length].id;
+    setSelected(nextId);
+    setShareStatus('');
+    history.replaceState(null, '', `#artwork-${String(nextId).padStart(3, '0')}`);
     setZoom(false);
     imageArea.current?.scrollTo(0, 0);
+  };
+  const shareArtwork = async () => {
+    if (!active) return;
+    const url = `${location.origin}${location.pathname}#artwork-${String(active.id).padStart(3, '0')}`;
+    const shareData = { title: `${active.title_en} / ${active.title_zh} — Hiroshige`, text: active.blurb_en, url };
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        setShareStatus('Shared / 已分享');
+      } else {
+        await navigator.clipboard.writeText(url);
+        setShareStatus('Link copied / 链接已复制');
+      }
+    } catch (error) {
+      if ((error as DOMException).name !== 'AbortError') setShareStatus('Copy the address above / 请复制地址栏链接');
+    }
   };
   useEffect(() => {
     const context = (
@@ -557,7 +600,7 @@ export default function Exhibition() {
               <button className="text-link chapter-link" onClick={() => { changeFilter(s.name, 'All'); document.getElementById('gallery')?.scrollIntoView(); }}>Explore {s.name} / {s.zh}之画册 <span aria-hidden="true">↘</span></button>
             </div>
             <figure className="chapter-art" data-reveal="">
-              <button aria-label={'Study ' + representative.title_en + ' / ' + representative.title_zh} onClick={event => { opener.current = event.currentTarget; setDetailIds(seasons.map(season => season.id)); setSelected(representative.id); setZoom(false); setDetailOpen(true); }}>
+              <button aria-label={'Study ' + representative.title_en + ' / ' + representative.title_zh} onClick={event => openDetail(representative.id, seasons.map(season => season.id), event.currentTarget)}>
                 <Artwork work={representative} />
               </button>
               <figcaption><span lang="zh">{representative.title_zh}</span><span>{representative.title_en}</span></figcaption>
@@ -646,11 +689,7 @@ export default function Exhibition() {
                 className="art-card" data-reveal=""
                 aria-label={w.title_zh + ' / ' + w.title_en + ' — ' + w.id}
                 onClick={(event) => {
-                  opener.current = event.currentTarget;
-                  setDetailIds(filtered.map(work => work.id));
-                  setSelected(w.id);
-                  setDetailOpen(true);
-                  setZoom(false);
+                  openDetail(w.id, filtered.map(work => work.id), event.currentTarget);
                 }}
               >
                 <div className="art-card-image">
@@ -695,12 +734,19 @@ export default function Exhibition() {
         </div>
         <div
           className="collection-actions"
-          aria-label="Future collection features"
+          aria-label="Exhibition collection"
         >
-          <p className="eyebrow">THE COLLECTION, TO KEEP · 即将开放</p>
-          <button disabled>Download Album / 下载图册 ↗</button>
-          <button disabled>Wallpaper / 壁纸 ↗</button>
-          <button disabled>Share / 分享 ↗</button>
+          <p className="eyebrow">THE COLLECTION, TO KEEP · 珍藏展览</p>
+          {/* Static export uses native links to avoid client prefetch overhead. */}
+          {/* oxlint-disable-next-line next/no-html-link-for-pages */}
+          <a href="/collection.html">Download Album / 下载图册 ↗</a>
+          {/* oxlint-disable-next-line next/no-html-link-for-pages */}
+          <a href="/collection.html#wallpapers">Wallpaper / 壁纸 ↗</a>
+          <button type="button" onClick={async () => {
+            const data = { title: 'Hiroshige — Birds, Flowers, Seasons', text: 'Explore 114 prints through Hiroshige’s year.', url: location.href.split('#')[0] };
+            if (navigator.share) await navigator.share(data).catch(() => {});
+            else await navigator.clipboard.writeText(data.url).catch(() => {});
+          }}>Share / 分享 ↗</button>
         </div>
         <div className="footer-bottom">
           <div className="colophon-visitor">
@@ -726,6 +772,8 @@ export default function Exhibition() {
         onOpenChange={(open) => {
           if (!open) {
             setDetailOpen(false);
+            setShareStatus('');
+            if (location.hash.startsWith('#artwork-')) history.replaceState(null, '', '#gallery');
           }
         }}
       >
@@ -829,9 +877,11 @@ export default function Exhibition() {
                     : '+ Look closer / 放大细赏'}
                 </button>
                 <div className="detail-placeholders">
-                  <button disabled>Wallpaper / 壁纸</button>
-                  <button disabled>Share / 分享</button>
-                  <span>Coming soon / 即将开放</span>
+                  <a href={'/artworks/' + active.web_image_filename} download>Download print / 下载原图</a>
+                  {/* oxlint-disable-next-line next/no-html-link-for-pages */}
+                  <a href="/collection.html#wallpapers">Wallpaper / 壁纸</a>
+                  <button type="button" onClick={shareArtwork}>Share / 分享</button>
+                  <span aria-live="polite">{shareStatus || `Permanent link / 永久链接 · #artwork-${String(active.id).padStart(3, '0')}`}</span>
                 </div>
               </div>
             </div>
