@@ -361,7 +361,8 @@ export default function Exhibition() {
     await engine.context.resume();
     const now = engine.context.currentTime;
     holdGain(engine.master.gain, now);
-    engine.master.gain.linearRampToValueAtTime(0.009, now + 1.4);
+    // Still restrained, but high enough to remain audible on laptop and mobile speakers.
+    engine.master.gain.linearRampToValueAtTime(0.018, now + 1.4);
     sessionStorage.setItem('hiroshige-ambient-sound', 'on');
     setSoundMode('on');
   };
