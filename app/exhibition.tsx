@@ -17,6 +17,7 @@ import {
 import catalog from './catalog.json';
 import imageSizes from './image-sizes.json';
 import { SeasonalMusic } from './seasonal-music';
+import { whenArtworkNearViewport } from './artwork-visibility';
 type Work = (typeof catalog.works)[number];
 type SoundMode = 'off' | 'on' | 'paused' | 'loading';
 const recordings = {
@@ -70,16 +71,26 @@ function Artwork({
   sizes?: string;
 }) {
   const size = imageSizes[work.web_image_filename as keyof typeof imageSizes];
+  const imageRef = useRef<HTMLImageElement>(null);
+  const src = import.meta.env.BASE_URL + 'artworks/' + work.web_image_filename;
+  const [requestedSrc, setRequestedSrc] = useState<string>();
+  useEffect(() => {
+    if (priority || !imageRef.current) return;
+    return whenArtworkNearViewport(imageRef.current, () => setRequestedSrc(src));
+  }, [priority, src]);
+  // Exact original aspect ratio reserves space without requesting distant JPEGs.
+  const placeholder = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${size.width}' height='${size.height}'/%3E`;
   return (
-    // Preserve the supplied JPEG bytes; native lazy loading and original dimensions are intentional.
+    // Only scheduling changes: the displayed/downloaded JPEG remains the original.
     // oxlint-disable-next-line next/no-img-element
     <img
+      ref={imageRef}
       className={className}
-      src={import.meta.env.BASE_URL + 'artworks/' + work.web_image_filename}
+      src={priority || requestedSrc === src ? src : placeholder}
       width={size.width}
       height={size.height}
       alt={work.image_alt_zh + ' / ' + work.image_alt_en}
-      loading={priority ? 'eager' : 'lazy'}
+      loading="eager"
       fetchPriority={priority ? 'high' : undefined}
       decoding="async"
       sizes={sizes}
