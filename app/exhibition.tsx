@@ -16,18 +16,14 @@ import {
 } from '@/components/ui/empty';
 import catalog from './catalog.json';
 import imageSizes from './image-sizes.json';
+import { SeasonalMusic } from './seasonal-music';
 type Work = (typeof catalog.works)[number];
-type SoundMode = 'off' | 'on' | 'paused';
-type AmbientEngine = {
-  context: AudioContext;
-  master: GainNode;
-  wind: GainNode;
-  water: GainNode;
-  fauna: GainNode;
-  tone: GainNode;
-  sources: AudioScheduledSourceNode[];
-  season: string;
-  eventTimer: ReturnType<typeof setTimeout> | null;
+type SoundMode = 'off' | 'on' | 'paused' | 'loading';
+const recordings = {
+  Spring: { url: '/audio/spring.mp3', gain: 0.8 },
+  Summer: { url: '/audio/summer.mp3', gain: 0.8 },
+  Autumn: { url: '/audio/autumn.mp3', gain: 0.8 },
+  Winter: { url: '/audio/winter.mp3', gain: 0.55 },
 };
 const works = catalog.works;
 const themes = ['All', 'Birds', 'Flowers', 'Moon', 'Rain', 'Snow', 'Animals'];
@@ -62,150 +58,6 @@ const seasons = [
     poem: '雪落松间，静候来春。',
   },
 ];
-const soundProfiles: Record<string, [number, number, number, number]> = {
-  Spring: [0.085, 0.008, 0.07, 0.014],
-  Summer: [0.065, 0.075, 0.012, 0.02],
-  Autumn: [0.11, 0.007, 0.05, 0.018],
-  Winter: [0.014, 0.001, 0, 0.007],
-};
-
-function createAmbientEngine(): AmbientEngine {
-  const context = new AudioContext();
-  const master = context.createGain();
-  master.gain.value = 0;
-  master.connect(context.destination);
-
-  const sources: AudioScheduledSourceNode[] = [];
-  const makeNoise = (
-    seconds: number,
-    memory: number,
-    filterType: BiquadFilterType,
-    frequency: number,
-    modulationRate: number,
-  ) => {
-    const buffer = context.createBuffer(1, context.sampleRate * seconds, context.sampleRate);
-    const data = buffer.getChannelData(0);
-    let shaped = 0;
-    for (let i = 0; i < data.length; i += 1) {
-      shaped = memory * shaped + (1 - memory) * (Math.random() * 2 - 1);
-      data[i] = shaped * 0.72;
-    }
-    data[data.length - 1] = data[0];
-    const source = context.createBufferSource();
-    source.buffer = buffer;
-    source.loop = true;
-    source.playbackRate.value = 0.985 + Math.random() * 0.03;
-    const filter = context.createBiquadFilter();
-    filter.type = filterType;
-    filter.frequency.value = frequency;
-    const swell = context.createGain();
-    swell.gain.value = 0.58;
-    const modulation = context.createOscillator();
-    modulation.frequency.value = modulationRate;
-    const modulationDepth = context.createGain();
-    modulationDepth.gain.value = 0.12;
-    modulation.connect(modulationDepth).connect(swell.gain);
-    source.connect(filter).connect(swell);
-    source.start();
-    modulation.start();
-    sources.push(source, modulation);
-    return { output: swell, filter };
-  };
-
-  const wind = context.createGain();
-  const water = context.createGain();
-  const fauna = context.createGain();
-  const tone = context.createGain();
-  [wind, water, fauna, tone].forEach((gain) => {
-    gain.gain.value = 0;
-    gain.connect(master);
-  });
-
-  // Prime-length beds and slightly different playback rates keep their shared pattern from lining up.
-  const windNoise = makeNoise(43, 0.975, 'lowpass', 560, 0.027);
-  windNoise.output.connect(wind);
-  const waterNoise = makeNoise(59, 0.68, 'bandpass', 1420, 0.043);
-  waterNoise.filter.Q.value = 0.7;
-  waterNoise.output.connect(water);
-
-  const airTone = context.createOscillator();
-  airTone.type = 'sine';
-  airTone.frequency.value = 92;
-  const toneFilter = context.createBiquadFilter();
-  toneFilter.type = 'lowpass';
-  toneFilter.frequency.value = 190;
-  const toneSwell = context.createGain();
-  toneSwell.gain.value = 0.38;
-  const toneModulation = context.createOscillator();
-  toneModulation.frequency.value = 0.019;
-  const toneDepth = context.createGain();
-  toneDepth.gain.value = 0.25;
-  toneModulation.connect(toneDepth).connect(toneSwell.gain);
-  airTone.connect(toneFilter).connect(toneSwell).connect(tone);
-  airTone.start();
-  toneModulation.start();
-  sources.push(airTone, toneModulation);
-
-  const engine: AmbientEngine = {
-    context,
-    master,
-    wind,
-    water,
-    fauna,
-    tone,
-    sources,
-    season: 'Spring',
-    eventTimer: null,
-  };
-  scheduleDistantTone(engine);
-  return engine;
-}
-
-function scheduleDistantTone(engine: AmbientEngine) {
-  // Long, irregular gaps keep the small tonal events from becoming a loop.
-  const delay = 26000 + Math.random() * 62000;
-  engine.eventTimer = setTimeout(() => {
-    if (engine.context.state === 'running') {
-      const chance = engine.season === 'Spring' ? 0.24 : engine.season === 'Autumn' ? 0.12 : engine.season === 'Winter' ? 0.035 : 0.06;
-      if (Math.random() < chance) {
-        const now = engine.context.currentTime;
-        const oscillator = engine.context.createOscillator();
-        const filter = engine.context.createBiquadFilter();
-        const envelope = engine.context.createGain();
-        const autumn = engine.season === 'Autumn';
-        const frequency = autumn ? 380 + Math.random() * 190 : 940 + Math.random() * 420;
-        oscillator.type = 'sine';
-        oscillator.frequency.setValueAtTime(frequency, now);
-        oscillator.frequency.linearRampToValueAtTime(frequency * (0.97 + Math.random() * 0.07), now + 1.6);
-        filter.type = 'bandpass';
-        filter.frequency.value = frequency;
-        filter.Q.value = 0.8;
-        envelope.gain.setValueAtTime(0, now);
-        envelope.gain.linearRampToValueAtTime(0.028, now + 0.8);
-        envelope.gain.linearRampToValueAtTime(0, now + 2.7);
-        oscillator.connect(filter).connect(envelope).connect(engine.fauna);
-        oscillator.start(now);
-        oscillator.stop(now + 2.2);
-      }
-    }
-    scheduleDistantTone(engine);
-  }, delay);
-}
-
-function holdGain(parameter: AudioParam, time: number) {
-  parameter.cancelAndHoldAtTime(time);
-}
-
-function setAmbientSeason(engine: AmbientEngine, season: string, immediate = false) {
-  const profile = soundProfiles[season] ?? soundProfiles.Spring;
-  const now = engine.context.currentTime;
-  engine.season = season;
-  [engine.wind, engine.water, engine.fauna, engine.tone].forEach((channel, index) => {
-    holdGain(channel.gain, now);
-    if (immediate) channel.gain.setValueAtTime(profile[index], now);
-    else channel.gain.linearRampToValueAtTime(profile[index], now + 3.2);
-  });
-}
 function Artwork({
   work,
   className = '',
@@ -250,12 +102,12 @@ function Hero({ soundMode, onToggleSound }: { soundMode: SoundMode; onToggleSoun
           className="sound-toggle"
           type="button"
           aria-pressed={soundMode === 'on'}
-          aria-label={`${soundMode === 'on' ? 'Mute' : soundMode === 'paused' ? 'Resume' : 'Enable'} ambient sound / ${soundMode === 'on' ? '关闭' : '开启'}环境声`}
+          aria-label={`${soundMode === 'on' || soundMode === 'loading' ? 'Mute' : soundMode === 'paused' ? 'Resume' : 'Enable'} ambient sound / ${soundMode === 'on' ? '关闭' : '开启'}环境声`}
           onClick={onToggleSound}
         >
           <span className="sound-mark" aria-hidden="true"><i /><i /><i /></span>
           <span>SOUND / 声音</span>
-          <b>{soundMode === 'on' ? 'ON' : soundMode === 'paused' ? 'RESUME' : 'OFF'}</b>
+          <b>{soundMode === 'loading' ? 'LOAD' : soundMode === 'on' ? 'ON' : soundMode === 'paused' ? 'RESUME' : 'OFF'}</b>
         </button>
         <span>UTAGAWA · 1797–1858</span>
       </header>
@@ -308,8 +160,9 @@ export default function Exhibition() {
   const [filterPending, setFilterPending] = useState(false);
   const [shareStatus, setShareStatus] = useState('');
   const [exhibitionShareStatus, setExhibitionShareStatus] = useState('');
-  const ambientEngine = useRef<AmbientEngine | null>(null);
-  const soundSuspendTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const ambientEngine = useRef<SeasonalMusic | null>(null);
+  const soundRequest = useRef(0);
+  const [soundError, setSoundError] = useState('');
   const filterTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const filterRequest = useRef({ season: 'All', theme: 'All' });
   const changeFilter = (nextSeason: string, nextTheme: string) => {
@@ -327,44 +180,44 @@ export default function Exhibition() {
   };
   useEffect(() => () => { if (filterTimer.current) clearTimeout(filterTimer.current); }, []);
   useEffect(() => {
-    const preferenceTimer = setTimeout(() => {
+    try {
       if (sessionStorage.getItem('hiroshige-ambient-sound') === 'on') setSoundMode('paused');
-    }, 0);
-    return () => {
-      clearTimeout(preferenceTimer);
-      if (soundSuspendTimer.current) clearTimeout(soundSuspendTimer.current);
-      if (ambientEngine.current?.eventTimer) clearTimeout(ambientEngine.current.eventTimer);
-      void ambientEngine.current?.context.close();
-    };
+    } catch { /* Playback remains available when storage is disabled. */ }
+    return () => { soundRequest.current++; ambientEngine.current?.close(); ambientEngine.current = null; };
   }, []);
   useEffect(() => {
-    if (ambientEngine.current) setAmbientSeason(ambientEngine.current, journeySeason);
-  }, [journeySeason]);
+    if (soundMode !== 'on') return;
+    void ambientEngine.current?.setSeason(journeySeason).catch(() => {
+      setSoundError('Recording could not load. Tap SOUND to retry. / 录音加载失败，请点击声音重试。');
+      ambientEngine.current?.disable();
+      setSoundMode('paused');
+    });
+  }, [journeySeason, soundMode]);
 
   const toggleSound = async () => {
-    if (soundMode === 'on') {
-      const engine = ambientEngine.current;
-      if (engine) {
-        const now = engine.context.currentTime;
-        holdGain(engine.master.gain, now);
-        engine.master.gain.linearRampToValueAtTime(0, now + 0.7);
-        soundSuspendTimer.current = setTimeout(() => engine.context.suspend(), 760);
-      }
-      sessionStorage.setItem('hiroshige-ambient-sound', 'off');
+    const request = ++soundRequest.current;
+    setSoundError('');
+    if (soundMode === 'on' || soundMode === 'loading') {
+      ambientEngine.current?.disable();
+      try { sessionStorage.setItem('hiroshige-ambient-sound', 'off'); } catch { /* optional */ }
       setSoundMode('off');
       return;
     }
-    if (soundSuspendTimer.current) clearTimeout(soundSuspendTimer.current);
-    const engine = ambientEngine.current ?? createAmbientEngine();
-    ambientEngine.current = engine;
-    setAmbientSeason(engine, journeySeason, true);
-    await engine.context.resume();
-    const now = engine.context.currentTime;
-    holdGain(engine.master.gain, now);
-    // Still restrained, but high enough to remain audible on laptop and mobile speakers.
-    engine.master.gain.linearRampToValueAtTime(0.018, now + 1.4);
-    sessionStorage.setItem('hiroshige-ambient-sound', 'on');
-    setSoundMode('on');
+    try {
+      const engine = ambientEngine.current ?? new SeasonalMusic(recordings);
+      ambientEngine.current = engine;
+      const pending = engine.enable(journeySeason);
+      setSoundMode('loading');
+      const started = await pending;
+      if (request !== soundRequest.current) return;
+      if (!started) { setSoundMode('paused'); return; }
+      try { sessionStorage.setItem('hiroshige-ambient-sound', 'on'); } catch { /* optional */ }
+      setSoundMode('on');
+    } catch {
+      if (request !== soundRequest.current) return;
+      setSoundMode('paused');
+      setSoundError('Recording could not load. Tap SOUND to retry. / 录音加载失败，请点击声音重试。');
+    }
   };
 
   // One observer per wall refresh; revealed works are unobserved immediately.
@@ -539,6 +392,7 @@ export default function Exhibition() {
   return (
     <main id="top">
       <Hero soundMode={soundMode} onToggleSound={toggleSound} />
+      {soundError && <p role="status" className="collection-share-status">{soundError}</p>}
       <section
         id="seasons"
         className="seasons-section"
@@ -771,6 +625,7 @@ export default function Exhibition() {
             </a>
             <br />
             <span lang="zh">季节、主题与赏析为本展策展编辑内容。</span>
+            <br /><a href="/audio/CREDITS.md" target="_blank" rel="noreferrer">Music credits / 音乐署名 ↗</a>
           </p>
           <a href="#top">Back to top ↑</a>
         </div>
