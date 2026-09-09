@@ -20,10 +20,10 @@ import { SeasonalMusic } from './seasonal-music';
 type Work = (typeof catalog.works)[number];
 type SoundMode = 'off' | 'on' | 'paused' | 'loading';
 const recordings = {
-  Spring: { url: '/audio/spring.mp3', gain: 0.8 },
-  Summer: { url: '/audio/summer.mp3', gain: 0.8 },
-  Autumn: { url: '/audio/autumn.mp3', gain: 0.8 },
-  Winter: { url: '/audio/winter.mp3', gain: 0.55 },
+  Spring: { url: import.meta.env.BASE_URL + 'audio/spring.mp3', gain: 0.8 },
+  Summer: { url: import.meta.env.BASE_URL + 'audio/summer.mp3', gain: 0.8 },
+  Autumn: { url: import.meta.env.BASE_URL + 'audio/autumn.mp3', gain: 0.8 },
+  Winter: { url: import.meta.env.BASE_URL + 'audio/winter.mp3', gain: 0.55 },
 };
 const works = catalog.works;
 const themes = ['All', 'Birds', 'Flowers', 'Moon', 'Rain', 'Snow', 'Animals'];
