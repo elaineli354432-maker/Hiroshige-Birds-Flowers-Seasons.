@@ -75,7 +75,7 @@ function Artwork({
     // oxlint-disable-next-line next/no-img-element
     <img
       className={className}
-      src={'/artworks/' + work.web_image_filename}
+      src={import.meta.env.BASE_URL + 'artworks/' + work.web_image_filename}
       width={size.width}
       height={size.height}
       alt={work.image_alt_zh + ' / ' + work.image_alt_en}
@@ -741,7 +741,7 @@ export default function Exhibition() {
                     : '+ Look closer / 放大细赏'}
                 </button>
                 <div className="detail-placeholders">
-                  <a href={'/artworks/' + active.web_image_filename} download>Download print / 下载原图</a>
+                  <a href={import.meta.env.BASE_URL + 'artworks/' + active.web_image_filename} download>Download print / 下载原图</a>
                   {/* oxlint-disable-next-line next/no-html-link-for-pages */}
                   <a href="/collection.html#wallpapers">Wallpaper / 壁纸</a>
                   <button type="button" onClick={shareArtwork}>Share / 分享</button>

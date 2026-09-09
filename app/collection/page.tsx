@@ -49,7 +49,7 @@ export default function CollectionPage() {
         {wallpapers.map(({ work, slug, season }) => <article key={work.id} className="wallpaper-item">
           {/* Original source dimensions vary; the contained preview never crops the supplied JPEG. */}
           {/* oxlint-disable-next-line next/no-img-element */}
-          <img src={'/artworks/' + work.web_image_filename} alt={work.image_alt_zh + ' / ' + work.image_alt_en} loading="lazy" decoding="async" width={imageSizes[work.web_image_filename as keyof typeof imageSizes].width} height={imageSizes[work.web_image_filename as keyof typeof imageSizes].height} />
+          <img src={import.meta.env.BASE_URL + 'artworks/' + work.web_image_filename} alt={work.image_alt_zh + ' / ' + work.image_alt_en} loading="lazy" decoding="async" width={imageSizes[work.web_image_filename as keyof typeof imageSizes].width} height={imageSizes[work.web_image_filename as keyof typeof imageSizes].height} />
           <div>
             <p className="eyebrow">{season}</p>
             <h3><span lang="zh">{work.title_zh}</span>{work.title_en}</h3>
