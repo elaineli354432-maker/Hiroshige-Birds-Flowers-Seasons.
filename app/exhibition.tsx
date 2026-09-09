@@ -97,6 +97,7 @@ function Hero({ soundMode, onToggleSound }: { soundMode: SoundMode; onToggleSoun
         <nav aria-label="Exhibition">
           <a href="#seasons">Seasons / 四时</a>
           <a href="#gallery">Works / 作品</a>
+          <a href={import.meta.env.BASE_URL + 'about'}>About / 画家介绍</a>
         </nav>
         <button
           className="sound-toggle"
